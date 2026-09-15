@@ -27,6 +27,14 @@ const paginaUrl = cfg.paginaUrl;
 const INKT = '#12212e', ZACHT = '#4a5d6e', ZEE = '#1a5f8a', LIJN = '#e3ddd0', PAPIER = '#fbf9f4';
 const rij = inhoud => `<tr><td style="padding:0 28px">${inhoud}</td></tr>`;
 
+// Alleen de openingsfoto gaat mee. Mailprogramma's blokkeren externe plaatjes
+// standaard; één gemist kader leest een stuk beter dan twintig.
+const opening = e.openingsfoto?.url ? `
+  <img src="${esc(e.openingsfoto.url)}" width="564" alt="${esc(e.openingsfoto.bijschrift || '')}"
+    style="display:block;width:100%;max-width:564px;height:auto;border-radius:10px;border:0">
+  ${e.openingsfoto.bijschrift || e.openingsfoto.bron ? `<p style="margin:6px 0 0;font:12px/1.4 Arial,sans-serif;color:${ZACHT}">
+    ${esc([e.openingsfoto.bijschrift, e.openingsfoto.bron].filter(Boolean).join(' \u00b7 '))}</p>` : ''}` : '';
+
 const rubrieken = e.categorieen.map(c => `
   <p style="margin:26px 0 10px;font:700 12px/1.4 Arial,sans-serif;letter-spacing:.12em;
      text-transform:uppercase;color:${ZEE}">${esc(c.emoji || '')} ${esc(c.naam)}</p>
@@ -74,6 +82,7 @@ const html = `<!doctype html>
       <p style="margin:16px 0 0;font:italic 16px/1.55 Georgia,serif;color:${ZACHT}">${esc(e.intro)}</p>
     </td></tr>
 
+    ${opening ? rij(`<div style="margin:20px 0 4px">${opening}</div>`) : ''}
     ${rij(feitjes)}
     ${rij(rubrieken)}
     ${rij(agenda)}

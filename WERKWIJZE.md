@@ -48,6 +48,14 @@ editie voor de precieze vorm. Wat er in moet:
   verrassend en klein: een raadselachtig krantenbericht uit 1937, het aantal agenten
   op Ithaka, een reddingsteam dat 's nachts uit Athene komt voor één veulen. Geen
   algemeenheden, geen samenvattingen van het grote nieuws.
+- **foto's** — de oogst levert bij veel berichten een foto mee, in het veld `foto`
+  (`url`, `bijschrift`). Neem die over bij het bericht waar hij bij hoort, en vul
+  `bron` aan met de naam van de site. Kies daarnaast één **openingsfoto** voor
+  bovenaan de editie: de sterkste foto van de week, bij voorkeur bij het verhaal
+  dat ook de titel draagt. Zet die op `openingsfoto` in de hoofdstructuur.
+  Berichten zonder foto zijn prima — de pagina vangt dat op. Neem nooit een foto
+  bij een bericht waar hij niet bij hoort, en gebruik geen foto bij gevoelig
+  nieuws zoals overlijdensberichten of ongelukken tenzij hij neutraal is.
 - **agenda** — wat er de komende twee weken te doen is: feesten, raadsvergaderingen,
   concerten, wegafsluitingen.
 - **statistiek** — het aantal bronnen, gescande en relevante berichten.
@@ -62,6 +70,14 @@ evenement te worden".
 Plaats- en persoonsnamen in de gangbare Latijnse schrijfwijze (Lixouri, Argostoli,
 Ithaka, Paliki, Ainos). Griekse instellingsnamen mogen blijven staan als er geen
 goed Nederlands woord is (ΔΕΥΑΚ, EPAL), met een half woord uitleg erbij.
+
+### Links
+
+Gebruik altijd de **directe link naar het artikel**, zoals die in de oogst staat
+bij `link`. Nooit de homepage van de site. Een lezer die op de bronvermelding
+klikt moet bij het verhaal uitkomen, niet op een voorpagina waar het bericht een
+dag later al weggezakt is. Behandelt een bericht meerdere bronnen, kies dan de
+bron met het uitgebreidste artikel en link daarheen.
 
 ### Nauwkeurigheid
 

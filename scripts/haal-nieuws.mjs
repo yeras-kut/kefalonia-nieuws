@@ -27,12 +27,14 @@ async function haal(url, { json = false } = {}) {
 }
 
 // WordPress REST API — volledige weekdekking, met paginering
+// De foto's halen we apart op: `_embed` maakt het antwoord vele malen groter,
+// terwijl één extra verzoek per honderd berichten hetzelfde oplevert.
 async function wordpress({ naam, host, soort }) {
   const items = [];
   const na = SINDS.toISOString().slice(0, 19);
   for (let pagina = 1; pagina <= 4; pagina++) {
     const url = `https://${host}/wp-json/wp/v2/posts?after=${na}&per_page=100&page=${pagina}`
-      + `&orderby=date&order=desc&_fields=date,link,title,excerpt`;
+      + `&orderby=date&order=desc&_fields=date,link,title,excerpt,featured_media`;
     let batch;
     try { batch = await haal(url, { json: true }); }
     catch (e) { if (pagina === 1) throw e; break; }
@@ -44,9 +46,41 @@ async function wordpress({ naam, host, soort }) {
         link: p.link,
         datum: p.date,
         samenvatting: schoon(p.excerpt?.rendered).slice(0, 500),
+        _fotoId: p.featured_media || 0,
       });
     }
     if (batch.length < 100) break;
+  }
+
+  // Foto's erbij zoeken
+  const ids = [...new Set(items.map(i => i._fotoId).filter(Boolean))];
+  const fotos = new Map();
+  for (let i = 0; i < ids.length; i += 90) {
+    const groep = ids.slice(i, i + 90);
+    try {
+      const media = await haal(
+        `https://${host}/wp-json/wp/v2/media?include=${groep.join(',')}&per_page=100`
+        + `&_fields=id,source_url,alt_text,caption,media_details`, { json: true });
+      for (const m of media || []) {
+        const maten = m.media_details?.sizes || {};
+        // medium_large (768px) is ruim genoeg voor de pagina en scheelt laadtijd
+        const bron = maten.medium_large?.source_url || maten.large?.source_url || m.source_url;
+        if (!bron) continue;
+        fotos.set(m.id, {
+          url: bron,
+          groot: m.source_url,
+          breedte: maten.medium_large?.width || m.media_details?.width || null,
+          hoogte: maten.medium_large?.height || m.media_details?.height || null,
+          bijschrift: schoon(m.caption?.rendered).slice(0, 200) || schoon(m.alt_text).slice(0, 200),
+        });
+      }
+    } catch { /* foto's zijn mooi meegenomen, geen reden om de oogst te laten mislukken */ }
+  }
+
+  for (const i of items) {
+    const f = fotos.get(i._fotoId);
+    if (f) i.foto = f;
+    delete i._fotoId;
   }
   return items;
 }
