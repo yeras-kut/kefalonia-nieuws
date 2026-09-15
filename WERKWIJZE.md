@@ -81,13 +81,22 @@ git push
 
 ## 5. Mail versturen
 
-`instellingen.json` staat niet in de repo. Schrijf hem eerst met de waarden uit de
-opdracht, controleer dan de proef, en verstuur:
+De mail gaat via Resend. `instellingen.json` staat niet in de repo; schrijf hem
+eerst met de waarden uit de opdracht. De API-sleutel komt uit de omgevings-
+variabele `RESEND_API_KEY`.
 
 ```sh
 node scripts/stuur-mail.mjs --proef   # controleer proef-mail.html
 node scripts/stuur-mail.mjs           # versturen
 ```
+
+## Let op bij het toevoegen van bronnen
+
+De cloud-omgeving laat alleen verkeer door naar domeinen die op de witte lijst
+staan. Zet je een nieuwe bron in `bronnen.json`, dan moet het domein ook bij de
+netwerkinstellingen van de omgeving erbij — anders geeft die bron stilletjes een
+403 en mis je hem. Het logboek van `haal-nieuws.mjs` laat zien welke bronnen
+faalden; controleer dat elke week.
 
 ## 6. Afsluiten
 

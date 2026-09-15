@@ -1,6 +1,7 @@
 {
-  "_uitleg": "Kopieer dit naar instellingen.json en vul de echte waarden in. instellingen.json staat in .gitignore en hoort niet in de publieke repo, omdat de webhook-URL iedereen die hem heeft mail naar de ontvangers laat sturen.",
+  "_uitleg": "Kopieer naar instellingen.json en vul in. instellingen.json staat in .gitignore en hoort niet in de publieke repo: de API-sleutel en de mailadressen horen daar niet thuis.",
+  "afzender": "Kefalonia Wekelijks <kefalonia@nieuws.voorbeeld.nl>",
   "ontvangers": ["naam@voorbeeld.nl"],
-  "webhook": "https://hook.eu2.make.com/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "resendSleutel": "re_XXXXXXXXXXXXXXXXXXXX  (of zet RESEND_API_KEY in de omgeving)",
   "paginaUrl": "https://GEBRUIKER.github.io/kefalonia-nieuws/"
 }

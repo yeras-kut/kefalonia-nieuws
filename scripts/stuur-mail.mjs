@@ -1,7 +1,10 @@
 #!/usr/bin/env node
-// Maakt de mail van de nieuwste editie en stuurt hem naar de Make-webhook.
+// Maakt de mail van de nieuwste editie en verstuurt hem via Resend.
 // Gebruik:  node scripts/stuur-mail.mjs            (verstuurt)
 //           node scripts/stuur-mail.mjs --proef    (schrijft alleen proef-mail.html)
+//
+// De API-sleutel komt uit de omgevingsvariabele RESEND_API_KEY, of anders uit
+// instellingen.json. Die sleutel hoort nooit in de repo.
 
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -104,26 +107,38 @@ const tekst = [
   `Hele editie online: ${paginaUrl}`,
 ].join('\n');
 
-const lading = {
-  onderwerp: `Kefalonia Wekelijks — ${e.titel}`,
-  ontvangers: cfg.ontvangers,
-  html, tekst,
-  editie: e.editie,
-  paginaUrl,
-};
+const onderwerp = `Kefalonia Wekelijks — ${e.titel}`;
 
 if (proef) {
   writeFileSync(join(WORTEL, 'proef-mail.html'), html);
   console.log(`Proef geschreven naar proef-mail.html (${(html.length / 1024).toFixed(1)} kB)`);
-  console.log(`Onderwerp: ${lading.onderwerp}`);
-  console.log(`Aan: ${lading.ontvangers.join(", ")}`);
-} else {
-  const r = await fetch(cfg.webhook, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(lading),
-  });
-  const antwoord = await r.text();
-  if (!r.ok) { console.error(`Versturen mislukt: HTTP ${r.status} — ${antwoord}`); process.exit(1); }
-  console.log(`Mail aangeboden aan Make: ${antwoord}`);
+  console.log(`Onderwerp: ${onderwerp}`);
+  console.log(`Afzender:  ${cfg.afzender}`);
+  console.log(`Aan:       ${cfg.ontvangers.join(', ')}`);
+  process.exit(0);
 }
+
+const sleutel = process.env.RESEND_API_KEY || cfg.resendSleutel;
+if (!sleutel) {
+  console.error('Geen API-sleutel gevonden. Zet RESEND_API_KEY in de omgeving of resendSleutel in instellingen.json.');
+  process.exit(1);
+}
+
+const r = await fetch('https://api.resend.com/emails', {
+  method: 'POST',
+  headers: { Authorization: `Bearer ${sleutel}`, 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    from: cfg.afzender,
+    to: cfg.ontvangers,
+    subject: onderwerp,
+    html,
+    text: tekst,
+  }),
+});
+
+const antwoord = await r.json().catch(() => ({}));
+if (!r.ok) {
+  console.error(`Versturen mislukt: HTTP ${r.status} — ${JSON.stringify(antwoord)}`);
+  process.exit(1);
+}
+console.log(`Mail verstuurd naar ${cfg.ontvangers.join(', ')} — id ${antwoord.id}`);
