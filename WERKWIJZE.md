@@ -74,9 +74,39 @@ concreet, met ruimte voor droge humor waar het nieuws daarom vraagt. Geen
 persbureau-Nederlands, geen uitroeptekens, geen "het belooft een prachtig
 evenement te worden".
 
-Plaats- en persoonsnamen in de gangbare Latijnse schrijfwijze (Lixouri, Argostoli,
-Ithaka, Paliki, Ainos). Griekse instellingsnamen mogen blijven staan als er geen
-goed Nederlands woord is (ΔΕΥΑΚ, EPAL), met een half woord uitleg erbij.
+### Vloeiend Nederlands
+
+Dit is het onderdeel waar het in de praktijk misgaat. Je vertaalt uit het Grieks,
+en dat is te zien als je niet oppast. Lees elke zin hardop voor je hem laat staan:
+struikel je, dan struikelt de lezer ook.
+
+**Vertaal alles, of leg het in een half woord uit.** Laat nooit een Griekse term
+staan die een Nederlandse lezer niet kent. Niet "Eparch Sardeli" maar "Smaragda
+Sardeli, bestuurder voor Ithaka". Niet "de onderprefect" maar "de vicegouverneur
+van de regio". Niet "Odos Souidias" maar "de Zwedenstraat". Afkortingen krijgen
+één keer hun betekenis: "EMAK, de Griekse reddingsbrigade", "het TEI, de
+technische hogeschool die Lixouri kwijtraakte". Partijnamen en clubs idem:
+"Laïki Syspirosi, de lijst van de communistische partij".
+
+**Geen telegramstijl die betekenis kost.** "Renovatie bijna klaar, bezetting niet"
+laat de lezer raden. Schrijf op wat je bedoelt: "De verbouwing is bijna af, maar
+er zijn nog steeds te weinig artsen."
+
+**Let op woorden met een lading.** Een ramp heeft geen "verjaardag" — schrijf
+"83 jaar na". Mensen "sterven" niet in een kop als "overleden" ook kan. En
+schrijf over mensen zoals je over je buren zou schrijven.
+
+**Laat het oordeel aan de lezer.** Niet "de vraag die de lokale pers stelt is de
+enige die telt", niet "wat op zichzelf al iets zegt over de ambitie". Meld wat er
+gebeurde en wie wat vindt; de lezer trekt zelf zijn conclusie. Een droge
+constatering mag, een preek niet.
+
+**Plaatsnamen zonder Griekse accenten.** Farakláta wordt Faraklata, Lixoúri wordt
+Lixouri. Gebruik de gangbare Latijnse schrijfwijze: Argostoli, Ithaka, Paliki,
+Ainos, Sami, Poros, Fiskardo.
+
+**Namen van personen** krijgen er bij eerste vermelding bij wie ze zijn. "Makis
+Theotokatos" zegt niemand iets; "journalist Makis Theotokatos" wel.
 
 ### Links
 

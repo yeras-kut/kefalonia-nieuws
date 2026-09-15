@@ -27,6 +27,14 @@ const paginaUrl = cfg.paginaUrl;
 const INKT = '#12212e', ZACHT = '#4a5d6e', ZEE = '#1a5f8a', LIJN = '#e3ddd0', PAPIER = '#fbf9f4';
 const rij = inhoud => `<tr><td style="padding:0 28px">${inhoud}</td></tr>`;
 
+const knop = (bijschrift = '') => `
+  <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:6px 0 2px">
+    <a href="${esc(paginaUrl)}" style="display:inline-block;background:${ZEE};color:#fff;
+      font:700 15px Arial,sans-serif;text-decoration:none;padding:13px 28px;border-radius:8px">
+      Lees de hele editie, met foto's</a>
+    ${bijschrift ? `<p style="margin:10px 0 0;font:12px/1.5 Arial,sans-serif;color:${ZACHT}">${bijschrift}</p>` : ''}
+  </td></tr></table>`;
+
 // Alleen de openingsfoto gaat mee. Mailprogramma's blokkeren externe plaatjes
 // standaard; één gemist kader leest een stuk beter dan twintig.
 const opening = e.openingsfoto?.url ? `
@@ -87,16 +95,13 @@ const html = `<!doctype html>
 
     ${opening ? rij(`<div style="margin:20px 0 4px">${opening}</div>`) : ''}
     ${rij(feitjes)}
+    ${rij(`<div style="margin:18px 0 6px">${knop()}</div>`)}
     ${rij(rubrieken)}
     ${rij(agenda)}
 
-    <tr><td align="center" style="padding:28px">
-      <a href="${esc(paginaUrl)}" style="display:inline-block;background:${ZEE};color:#fff;
-        font:700 15px Arial,sans-serif;text-decoration:none;padding:13px 28px;border-radius:8px">
-        Lees de hele editie, met foto's</a>
-      <p style="margin:12px 0 0;font:12px/1.5 Arial,sans-serif;color:${ZACHT}">
-        Alle verhalen voluit, met de foto's erbij. Handig om door te sturen:<br>
-        <a href="${esc(paginaUrl)}" style="color:${ZEE}">${esc(paginaUrl)}</a></p>
+    <tr><td style="padding:24px 28px 28px">
+      ${knop(`Alle verhalen voluit, met de foto's erbij. Handig om door te sturen:<br>
+        <a href="${esc(paginaUrl)}" style="color:${ZEE}">${esc(paginaUrl)}</a>`)}
     </td></tr>
 
     <tr><td style="padding:18px 28px 26px;border-top:1px solid ${LIJN}">
