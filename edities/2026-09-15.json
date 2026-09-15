@@ -1,0 +1,240 @@
+{
+  "editie": "2026-09-15",
+  "periode": { "van": "2026-09-08", "tot": "2026-09-14" },
+  "titel": "Een muziekschool, een aardbeving en het mysterie van de reus",
+  "intro": "De week waarin Lixouri eindelijk zijn muziekgymnasium kreeg, de aarde onder Paliki weer even bewoog, en Kefalonia stilstond bij de slachting van 83 jaar geleden. Plus: een gewond veulen op de Ainos en een skelet dat misschien nooit bestond.",
+  "categorieen": [
+    {
+      "naam": "Onderwijs",
+      "emoji": "🎼",
+      "items": [
+        {
+          "kop": "Muziekgymnasium Kefalonia geopend in Lixouri",
+          "tekst": "Na jaren praten is het er: het Muziekgymnasium van Kefalonia opende woensdag in Lixouri, met wijding en veel publiek. De eerste lichting telt 21 tot 23 leerlingen, die uit het hele eiland komen. Parlementslid Panagis Kappatos noemde het \"een historische dag voor het onderwijs op Kefalonia\". Er klonk ook kritiek: het schoolgebouw zelf is niet gerenoveerd en vertoont zichtbare gebreken — meerdere media vonden dat het applaus eerder de leerlingen en ouders toekwam dan de gekozen bestuurders die elkaar stonden te prijzen.",
+          "bron": "Kefalonia News / Kefalonia Life",
+          "link": "https://kefalonianews.gr/"
+        },
+        {
+          "kop": "Schooljaar begonnen op beide eilanden",
+          "tekst": "De scholen op Kefalonia en Ithaka gingen weer open. Bij het EPAL in Lixouri kwamen leerlingen van het hele eiland samen voor de eerste bel; op Ithaka ging burgemeester Sardeli langs bij de wijdingen van de scholen.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/"
+        }
+      ]
+    },
+    {
+      "naam": "Aarde en natuur",
+      "emoji": "🌍",
+      "items": [
+        {
+          "kop": "Aardbeving 4,9 bij Lixouri — geen schade",
+          "tekst": "Zaterdagavond trilde het eiland: een beving van 4,9 op de schaal van Richter, met het epicentrum zo'n 31 kilometer ten zuidwesten van Lixouri. De brandweerkorpsen van West-Griekenland en de Ionische Eilanden en de 6e EMAK-eenheid werden in paraatheid gebracht, en er reden patrouilles op Kefalonia én Zakynthos. Er kwamen geen meldingen van schade of gewonden. Seismoloog Tselentis hield het hoofd koel: de boog is \"geprikkeld\", maar er is geen reden tot zorg.",
+          "bron": "Diverse",
+          "link": "https://www.kefaloniapress.gr/"
+        },
+        {
+          "kop": "Reddingsteam uit Athene voor gewond veulen op de Ainos",
+          "tekst": "Een team van Help Horses Ymittos reed 's nachts helemaal uit Athene naar Atsoupades voor een gewond veulen van de Ainos-pony's. Er ging een dringende oproep uit voor een dierenarts en een draagbaar röntgenapparaat.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/topika/koinonika/article/897723/kefalonia-apo-tin-athina-omada-tis-help-horses/"
+        }
+      ]
+    },
+    {
+      "naam": "Herdenking",
+      "emoji": "🕯️",
+      "items": [
+        {
+          "kop": "83 jaar na de slachting van de Acqui-divisie",
+          "tekst": "Argostoli herdacht de 83e verjaardag van de slachting van de Italiaanse Acqui-divisie in september 1943. De Italiaanse fregat Paolo Thaon di Revel meerde af in de haven van Argostoli voor de plechtigheden. De gemeente Argostoli was vertegenwoordigd door waarnemend burgemeester Giorgos Tsilimidos en de voorzitter van de gemeenteraad.",
+          "bron": "Kefalonia Life / InKefalonia",
+          "link": "https://kefalonialife.gr/"
+        }
+      ]
+    },
+    {
+      "naam": "Zorg en veiligheid",
+      "emoji": "🚑",
+      "items": [
+        {
+          "kop": "Twee spoedevacuaties vanaf Ithaka in één etmaal",
+          "tekst": "De bemanning van kustwachtvaartuig PLS 1071 haalde binnen één etmaal twee patiënten van Ithaka: een baby van 20 maanden en een 30-jarige zwangere vrouw, beiden met spoed naar Kefalonia. \"Beschermengelen van Ithaka\", kopten de kranten. Het illustreert meteen waarom het ziekenhuis op Kefalonia zo zwaar telt voor het buureiland.",
+          "bron": "Kefalonia Life / InKefalonia",
+          "link": "https://kefalonialife.gr/"
+        },
+        {
+          "kop": "Vaste arts voor het Mantzavinateio in Lixouri",
+          "tekst": "Het ziekenhuis van Lixouri krijgt er een vaste arts bij — een flinke opluchting voor Paliki. De gemeente wordt genoemd als de partij die het verschil maakte.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/"
+        },
+        {
+          "kop": "Renovatie ziekenhuis Kefalonia in laatste fase",
+          "tekst": "De verbouwing van het ziekenhuis van Kefalonia nadert de afronding.",
+          "bron": "InKefalonia",
+          "link": "https://www.inkefalonia.gr/"
+        },
+        {
+          "kop": "Politie meer dan 40 procent onderbezet",
+          "tekst": "Politievakbond POASY luidt de noodklok over Kefalonia en Ithaka: de onderbezetting loopt op tot boven de 40 procent. Op heel Ithaka zijn nog maar vijf agenten gestationeerd. Ondertussen werden op Kefalonia in één week 97 verkeersovertredingen beboet (de week ervoor 110).",
+          "bron": "Kefalonia Press / Ithaka",
+          "link": "https://www.kefaloniapress.gr/"
+        }
+      ]
+    },
+    {
+      "naam": "Infrastructuur en verkeer",
+      "emoji": "🚧",
+      "items": [
+        {
+          "kop": "Jachthaven van 200 plaatsen voor Lixouri in plan van 31,5 miljoen",
+          "tekst": "Er ligt een voorstel voor een jachthaven met 200 ligplaatsen bij Lixouri, onderdeel van een groter Argostoli–Lixouri-plan van 31,5 miljoen euro. In datzelfde pakket zit ook een openluchtzwembad.",
+          "bron": "Landelijke pers",
+          "link": "https://www.kefaloniapress.gr/"
+        },
+        {
+          "kop": "SEATRAC op het strand van Aragia bij Poros",
+          "tekst": "Bij Aragia (Poros) zijn de SEATRAC-systemen geplaatst, waarmee mensen met een beperking zelfstandig de zee in kunnen. \"Al is het september\", tekende Kefalonia Press er droog bij aan — het seizoen loopt op zijn eind.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/topika/koinonika/article/897832/poros-kefalonias-mpikan-ta-seatrac-sta-aragia/"
+        },
+        {
+          "kop": "Koutavos wacht al vier maanden op de aannemer",
+          "tekst": "Rond de lagune van Koutavos bij Argostoli staan 37 lampen uit en dreigen dorre dennen om te vallen. De regio Ionische Eilanden wacht naar eigen zeggen al ruim vier maanden op de aannemer.",
+          "bron": "Kefalonia Life",
+          "link": "https://kefalonialife.gr/"
+        },
+        {
+          "kop": "Sami: Odos Souidias dicht tot november",
+          "tekst": "Een deel van de gemeenteweg Odos Souidias in Sami is afgesloten van 10 september tot 8 november.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/"
+        },
+        {
+          "kop": "Onafgemaakt werk in Minies sinds mei",
+          "tekst": "Werkzaamheden van waterbedrijf DEYAK liggen sinds mei stil in Minies. Bewoners maken zich zorgen over de staat van de weg na de eerste stevige regenbui.",
+          "bron": "Kefalonia Life",
+          "link": "https://kefalonialife.gr/"
+        }
+      ]
+    },
+    {
+      "naam": "Veerboten",
+      "emoji": "⛴️",
+      "items": [
+        {
+          "kop": "78 procent wil meer rederijen op de eilandlijnen",
+          "tekst": "In een peiling over de veerverbindingen van Kefalonia zegt 78 procent dat er meer rederijen bij moeten; slechts 2 procent is tevreden zoals het nu is. Het debat gaat vooral over de lijn Patras–Sami en de vraag of Superfast daar passagiers en auto's mag meenemen. Stavros Toulatos pleit ervoor de Italiëlijn ook open te stellen voor binnenlandse trajecten.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/"
+        }
+      ]
+    },
+    {
+      "naam": "Cultuur en agenda",
+      "emoji": "🎭",
+      "items": [
+        {
+          "kop": "42e Korenontmoeting van Kefalonia",
+          "tekst": "Op 18 en 19 september komen de koren samen in Argostoli voor twee muziekavonden. Toegang is gratis.",
+          "bron": "Kefalonia News",
+          "link": "https://kefalonianews.gr/"
+        },
+        {
+          "kop": "Kinderkoor in gemeente Sami",
+          "tekst": "De gemeente Sami richt een kinderkoor op. Meedoen is gratis.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/"
+        },
+        {
+          "kop": "Derde Festival van Sociale Solidariteit",
+          "tekst": "In Argostoli vond het 3e Festival van Sociale Solidariteit plaats, onder het motto \"Het leven online en offline\".",
+          "bron": "Kefalonia Life",
+          "link": "https://kefalonialife.gr/"
+        },
+        {
+          "kop": "Modelbootvaarders uit heel Griekenland in Argostoli",
+          "tekst": "Argostoli was gastheer van de 26e Panhelleense bijeenkomst van scheepsmodelbouwers, met wedstrijden voor radiografisch bestuurde boten.",
+          "bron": "Kefalonia Press",
+          "link": "https://www.kefaloniapress.gr/"
+        }
+      ]
+    },
+    {
+      "naam": "Ithaka",
+      "emoji": "🏛️",
+      "items": [
+        {
+          "kop": "School van Homerus officieel archeologische vindplaats",
+          "tekst": "De Schole Omirou op Ithaka is officieel uitgeroepen tot archeologische vindplaats — een formele status die de site beschermt.",
+          "bron": "Ithaka-media",
+          "link": "https://www.kefaloniapress.gr/"
+        },
+        {
+          "kop": "Stadion van Vathy vijf jaar na storm Balos nog steeds kapot",
+          "tekst": "Vijf jaar nadat storm \"Balos\" het gemeentelijk stadion van Vathy verwoestte, is er nog niets hersteld.",
+          "bron": "Ithaka-media",
+          "link": "https://www.kefaloniapress.gr/"
+        },
+        {
+          "kop": "Kritiek op staat van archeologisch museum",
+          "tekst": "De KKE noemt de toestand van de archeologische vindplaatsen en het Archeologisch Museum van Ithaka onaanvaardbaar en dringt aan op bescherming en onderzoek.",
+          "bron": "Portoni News",
+          "link": "https://portoni.gr/"
+        }
+      ]
+    },
+    {
+      "naam": "Bestuur en politiek",
+      "emoji": "🏛",
+      "items": [
+        {
+          "kop": "Stevige botsing in de gemeenteraad van Lixouri",
+          "tekst": "De oppositie haalde hard uit naar het gemeentebestuur van Lixouri, onder meer over de asfalteringen en de opening van het muziekgymnasium. Er speelt ook een lelijke kwestie: een medewerker van de gemeente zou een kwetsbare vrouw publiekelijk bespot hebben, wat tot scherpe reacties leidde.",
+          "bron": "Kefalonia Life",
+          "link": "https://kefalonialife.gr/"
+        },
+        {
+          "kop": "Tweede beschermd-wonenhuis voor Lixouri",
+          "tekst": "Er wordt gewerkt aan een tweede Stegi Ypostirizomenis Diaviosis (beschermd wonen voor mensen met een beperking) in Lixouri.",
+          "bron": "Kefalonia Life",
+          "link": "https://kefalonialife.gr/"
+        }
+      ]
+    }
+  ],
+  "feitjes": [
+    {
+      "tekst": "Een krantenbericht uit 1937 beschreef een skelet van een \"reus\" van 2,5 meter, gevonden in het Livadi van Lixouri. De archeologische registers zwijgen erover — het mysterie is nooit opgelost.",
+      "bron": "Kefalonia Press",
+      "link": "https://www.kefaloniapress.gr/topika/apopseis-topika/article/897394/kefalonia-to-mystirio-toy-giganta-ton-2-5-metron/"
+    },
+    {
+      "tekst": "Op heel Ithaka zijn nog vijf politieagenten gestationeerd.",
+      "bron": "POASY",
+      "link": "https://www.kefaloniapress.gr/"
+    },
+    {
+      "tekst": "In een landelijk overzicht van waterprijzen per gemeente duiken Argostoli, Lixouri en Sami op — het eiland betaalt niet het minste voor zijn kraanwater.",
+      "bron": "Landelijke pers",
+      "link": "https://www.kefaloniapress.gr/"
+    },
+    {
+      "tekst": "Waterpolo keert terug op Kefalonia.",
+      "bron": "Landelijke pers",
+      "link": "https://www.kefaloniapress.gr/"
+    },
+    {
+      "tekst": "Het feest van Panagia Kathariotissa wordt elk jaar op 8 september gevierd op de hoogste top van Ithaka.",
+      "bron": "Ithaka-media",
+      "link": "https://www.kefaloniapress.gr/"
+    }
+  ],
+  "agenda": [
+    { "datum": "wo 16 sep", "wat": "Gemeenteraad Argostoli, 18e reguliere vergadering" },
+    { "datum": "vr 18 & za 19 sep", "wat": "42e Korenontmoeting van Kefalonia, Argostoli — gratis toegang" },
+    { "datum": "za 19 sep", "wat": "Workshop voor kinderen van 9 tot 12 jaar, Botanische Tuin van Kefalonia" },
+    { "datum": "do 24 sep", "wat": "Argostoli eert schutspatrones Panagia Drapaniotissa, met processies" }
+  ],
+  "statistiek": { "bronnen": 12, "berichtenGescand": 744, "relevant": 455 }
+}

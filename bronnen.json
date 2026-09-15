@@ -1,0 +1,18 @@
+{
+  "wordpress": [
+    { "naam": "Kefalonia News",       "host": "kefalonianews.gr",  "soort": "nieuws" },
+    { "naam": "Kefalonia Life",       "host": "kefalonialife.gr",  "soort": "nieuws" },
+    { "naam": "Kefalonia Press",      "host": "kefaloniapress.gr", "soort": "nieuws" },
+    { "naam": "Dimos Argostoli",      "host": "argostoli.gov.gr",  "soort": "gemeente" }
+  ],
+  "googlenews": [
+    { "naam": "InKefalonia",          "query": "site:inkefalonia.gr" },
+    { "naam": "Kefalonitika Nea",     "query": "site:kefalonianea.gr" },
+    { "naam": "Portoni News",         "query": "site:portoni.gr" },
+    { "naam": "Kefalonia (landelijk)","query": "Κεφαλονιά" },
+    { "naam": "Ithaka",               "query": "Ιθάκη" },
+    { "naam": "Dorpen en havens",     "query": "Αργοστόλι OR Ληξούρι OR Σάμη OR Πόρος OR Φισκάρδο" },
+    { "naam": "Veerboten",            "query": "Κεφαλονιά πλοίο OR ferry OR δρομολόγια" },
+    { "naam": "Aardbevingen",         "query": "σεισμός Κεφαλονιά OR Ιθάκη" }
+  ]
+}
