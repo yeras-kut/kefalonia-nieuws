@@ -86,7 +86,7 @@ const html = `<!doctype html>
 
     <tr><td style="padding:30px 28px 0">
       <p style="margin:0 0 12px;font:700 11px Arial,sans-serif;letter-spacing:.16em;
-         text-transform:uppercase;color:${ZEE}">Kefalonia &amp; Ithaka &middot; Wekelijks</p>
+         text-transform:uppercase;color:${ZEE}">Kefalonia &middot; Wekelijks</p>
       <h1 style="margin:0 0 8px;font:700 26px/1.2 Georgia,serif;color:${INKT}">${esc(e.titel)}</h1>
       <p style="margin:0;font:13px Arial,sans-serif;color:${ZACHT}">
         ${esc(langeDatum(e.periode.van))} tot en met ${esc(langeDatum(e.periode.tot))}</p>
@@ -106,7 +106,7 @@ const html = `<!doctype html>
 
     <tr><td style="padding:18px 28px 26px;border-top:1px solid ${LIJN}">
       <p style="margin:0;font:12px/1.5 Arial,sans-serif;color:${ZACHT}">
-        Automatisch samengesteld uit ${e.statistiek?.bronnen ?? '?'} Kefalonische en Ithakese bronnen.
+        Automatisch samengesteld uit ${e.statistiek?.bronnen ?? '?'} Kefalonische bronnen.
         Elke maandagochtend opnieuw.</p>
     </td></tr>
   </table>
@@ -115,7 +115,7 @@ const html = `<!doctype html>
 
 // Platte tekst voor clients die geen HTML tonen
 const tekst = [
-  `KEFALONIA & ITHAKA — WEKELIJKS`,
+  `KEFALONIA — WEKELIJKS`,
   e.titel,
   `${langeDatum(e.periode.van)} t/m ${langeDatum(e.periode.tot)}`,
   '', e.intro, '',

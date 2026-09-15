@@ -153,7 +153,7 @@ function paginaHtml(editie, { isIndex, archief }) {
 <div class="omslag">
   ${isIndex ? '' : '<a class="terug" href="../index.html">← Naar de laatste editie</a>'}
   <header class="kop">
-    <p class="merk">Kefalonia &amp; Ithaka · Wekelijks</p>
+    <p class="merk">Kefalonia · Wekelijks</p>
     <h1>${esc(titel)}</h1>
     <p class="periode">Het nieuws van ${esc(langeDatum(periode.van))} tot en met ${esc(langeDatum(periode.tot))}</p>
     ${intro ? `<p class="intro">${esc(intro)}</p>` : ''}
@@ -164,7 +164,7 @@ function paginaHtml(editie, { isIndex, archief }) {
   ${agendaBlok}
   ${archiefBlok}
   <footer>
-    <p>Samengesteld uit ${statistiek?.bronnen ?? '?'} Kefalonische en Ithakese bronnen${statistiek?.berichtenGescand ? `, ${statistiek.berichtenGescand} berichten gescand` : ''}. Elke maandagochtend ververst.</p>
+    <p>Samengesteld uit ${statistiek?.bronnen ?? '?'} Kefalonische bronnen${statistiek?.berichtenGescand ? `, ${statistiek.berichtenGescand} berichten gescand` : ''}. Elke maandagochtend ververst.</p>
     <p>Klopt er iets niet, of mist er een bron? Laat het weten.</p>
   </footer>
 </div>

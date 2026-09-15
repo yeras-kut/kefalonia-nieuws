@@ -3,6 +3,18 @@
 Dit is de instructie die de cloud-agent elke maandagochtend volgt. Pas dit bestand
 aan als je de nieuwsbrief anders wilt hebben — de agent leest het elke week opnieuw.
 
+## Het gebied: Kefalonia
+
+De nieuwsbrief gaat over **Kefalonia**, niet over Ithaka. Geen aparte rubriek
+Ithaka, en geen berichten die alleen daar spelen — geen gemeenteraad van Vathy,
+geen Ithakese festivals, geen toerismebeleid van het buureiland.
+
+Eén uitzondering: bestuurlijk vormen de eilanden vaak één geheel, en dan gaat het
+bericht ook over Kefalonia. De vicegouverneur van "Kefalonia en Ithaka", de
+politiebezetting van beide eilanden, de veerverbindingen, het ziekenhuis van
+Argostoli waar patiënten van Ithaka naartoe gaan: die horen er gewoon in. De
+vuistregel is of een lezer op Kefalonia er iets aan heeft.
+
 ## 1. Nieuws ophalen
 
 ```sh
@@ -10,7 +22,9 @@ npm_config_yes=true node scripts/haal-nieuws.mjs 7 > ruwe-oogst.json
 ```
 
 Dit levert een JSON met alle berichten van de afgelopen zeven dagen uit de bronnen
-in `bronnen.json`. Controleer het logboek dat naar stderr gaat: als meer dan twee
+in `bronnen.json`. Er zit nog Ithakees nieuws in de oogst, omdat veel bronnen
+beide eilanden bedienen; filter dat er bij het schrijven uit volgens de regel
+hierboven. Controleer het logboek dat naar stderr gaat: als meer dan twee
 bronnen mislukken, meld dat onderaan de editie in plaats van het stil te laten.
 
 ## 2. Filteren
