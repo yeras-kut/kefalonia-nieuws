@@ -106,7 +106,7 @@ const tekst = [
 
 const lading = {
   onderwerp: `Kefalonia Wekelijks — ${e.titel}`,
-  ontvangers: cfg.ontvangers.join(','),
+  ontvangers: cfg.ontvangers,
   html, tekst,
   editie: e.editie,
   paginaUrl,
@@ -116,7 +116,7 @@ if (proef) {
   writeFileSync(join(WORTEL, 'proef-mail.html'), html);
   console.log(`Proef geschreven naar proef-mail.html (${(html.length / 1024).toFixed(1)} kB)`);
   console.log(`Onderwerp: ${lading.onderwerp}`);
-  console.log(`Aan: ${lading.ontvangers}`);
+  console.log(`Aan: ${lading.ontvangers.join(", ")}`);
 } else {
   const r = await fetch(cfg.webhook, {
     method: 'POST',
