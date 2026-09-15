@@ -35,15 +35,18 @@ const opening = e.openingsfoto?.url ? `
   ${e.openingsfoto.bijschrift || e.openingsfoto.bron ? `<p style="margin:6px 0 0;font:12px/1.4 Arial,sans-serif;color:${ZACHT}">
     ${esc([e.openingsfoto.bijschrift, e.openingsfoto.bron].filter(Boolean).join(' \u00b7 '))}</p>` : ''}` : '';
 
-const rubrieken = e.categorieen.map(c => `
-  <p style="margin:26px 0 10px;font:700 12px/1.4 Arial,sans-serif;letter-spacing:.12em;
-     text-transform:uppercase;color:${ZEE}">${esc(c.emoji || '')} ${esc(c.naam)}</p>
-  ${c.items.map(i => `
-  <p style="margin:0 0 12px;font:15px/1.55 Georgia,serif;color:${INKT}">
-    <strong style="font-size:15px">${esc(i.kop)}</strong><br>
-    <span style="color:${ZACHT};font:14px/1.55 Arial,sans-serif">${esc(i.tekst)}</span>
-    ${i.link ? `<br><a href="${esc(i.link)}" style="color:${ZEE};font:12px Arial,sans-serif;text-decoration:none">${esc(i.bron)} →</a>` : ''}
-  </p>`).join('')}`).join('');
+// De mail geeft de hoogtepunten: de feitjes voluit, en van de rest alleen de
+// koppen, zodat je in één oogopslag ziet wat er speelde. De volledige verhalen
+// met alle foto's staan op de pagina.
+const rubrieken = `
+  <p style="margin:26px 0 12px;font:700 12px/1.4 Arial,sans-serif;letter-spacing:.12em;
+     text-transform:uppercase;color:${ZEE}">Verder deze week</p>
+  ${e.categorieen.map(c => `
+  <p style="margin:0 0 14px;font:14px/1.6 Arial,sans-serif;color:${INKT}">
+    <strong style="color:${ZACHT};font:700 12px Arial,sans-serif;letter-spacing:.06em;
+      text-transform:uppercase">${esc(c.emoji || '')}&nbsp;&nbsp;${esc(c.naam)}</strong><br>
+    ${c.items.map(i => esc(i.kop)).join('<br>')}
+  </p>`).join('')}`;
 
 const feitjes = e.feitjes?.length ? `
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#e8f1f7;border-radius:10px;margin:8px 0 4px">
@@ -90,9 +93,10 @@ const html = `<!doctype html>
     <tr><td align="center" style="padding:28px">
       <a href="${esc(paginaUrl)}" style="display:inline-block;background:${ZEE};color:#fff;
         font:700 15px Arial,sans-serif;text-decoration:none;padding:13px 28px;border-radius:8px">
-        Lees de hele editie online</a>
-      <p style="margin:12px 0 0;font:12px Arial,sans-serif;color:${ZACHT}">
-        Handig om door te sturen: <a href="${esc(paginaUrl)}" style="color:${ZEE}">${esc(paginaUrl)}</a></p>
+        Lees de hele editie, met foto's</a>
+      <p style="margin:12px 0 0;font:12px/1.5 Arial,sans-serif;color:${ZACHT}">
+        Alle verhalen voluit, met de foto's erbij. Handig om door te sturen:<br>
+        <a href="${esc(paginaUrl)}" style="color:${ZEE}">${esc(paginaUrl)}</a></p>
     </td></tr>
 
     <tr><td style="padding:18px 28px 26px;border-top:1px solid ${LIJN}">
@@ -111,7 +115,8 @@ const tekst = [
   `${langeDatum(e.periode.van)} t/m ${langeDatum(e.periode.tot)}`,
   '', e.intro, '',
   ...(e.feitjes?.length ? ['OPMERKELIJK', ...e.feitjes.map(f => `  - ${f.tekst}`), ''] : []),
-  ...e.categorieen.flatMap(c => [c.naam.toUpperCase(), ...c.items.map(i => `  - ${i.kop}\n    ${i.tekst}`), '']),
+  'VERDER DEZE WEEK', '',
+  ...e.categorieen.flatMap(c => [c.naam.toUpperCase(), ...c.items.map(i => `  - ${i.kop}`), '']),
   ...(e.agenda?.length ? ['OP DE KALENDER', ...e.agenda.map(a => `  ${a.datum}: ${a.wat}`), ''] : []),
   `Hele editie online: ${paginaUrl}`,
 ].join('\n');
