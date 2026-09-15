@@ -48,11 +48,12 @@ h2{font-family:Georgia,serif;font-size:1.35rem;margin:0;letter-spacing:-.01em}
   border-bottom:1px solid var(--lijn);margin-bottom:1.5rem}
 .rubriek-kop .teken{font-size:1.2rem;line-height:1}
 article.bericht{margin:0 0 2rem}
-figure{margin:0 0 .7rem}
+figure{margin:.9rem 0 .6rem}
 figure img{display:block;width:100%;height:auto;max-height:15rem;object-fit:cover;
   border-radius:10px;background:var(--zee-licht)}
 figcaption{font-size:.78rem;color:var(--inkt-zacht);margin-top:.35rem;line-height:1.4}
 .opening{margin:0 0 2.5rem}
+.opening figure,figure.opening{margin:0 0 2.5rem}
 .opening img{max-height:24rem;border-radius:14px}
 .opening figcaption{font-size:.82rem}
 article.bericht h3{font-size:1.05rem;margin:0 0 .4rem;line-height:1.35;font-weight:650}
@@ -88,9 +89,11 @@ footer a{color:var(--zee)}
 
 // Foto's staan op de servers van de bronnen. Gaat er een stuk, dan verdwijnt
 // het kader in plaats van een gebroken plaatje te tonen.
-function plaatje(foto, { klasse = '' } = {}) {
+function plaatje(foto, { klasse = '', toonBron = false } = {}) {
   if (!foto?.url) return '';
-  const bij = [foto.bijschrift, foto.bron].filter(Boolean).join(' · ');
+  // De bron staat bij een bericht al onder de tekst; hem in het bijschrift
+  // herhalen leest als een fout. Alleen bij de openingsfoto hoort hij erbij.
+  const bij = [foto.bijschrift, toonBron ? foto.bron : null].filter(Boolean).join(' · ');
   return `<figure${klasse ? ` class="${klasse}"` : ''}>
     <img src="${esc(foto.url)}" alt="${esc(foto.bijschrift || '')}" loading="lazy"
       referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
@@ -107,9 +110,9 @@ function paginaHtml(editie, { isIndex, archief }) {
       <div class="rubriek-kop"><span class="teken">${esc(c.emoji || '')}</span><h2>${esc(c.naam)}</h2></div>
       ${c.items.map(i => `
       <article class="bericht">
-        ${plaatje(i.foto)}
         <h3>${esc(i.kop)}</h3>
         <p>${esc(i.tekst)}</p>
+        ${plaatje(i.foto)}
         <p class="herkomst">${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.bron)}</a>` : esc(i.bron)}</p>
       </article>`).join('')}
     </section>`).join('');
@@ -154,7 +157,7 @@ function paginaHtml(editie, { isIndex, archief }) {
     <p class="periode">Het nieuws van ${esc(langeDatum(periode.van))} tot en met ${esc(langeDatum(periode.tot))}</p>
     ${intro ? `<p class="intro">${esc(intro)}</p>` : ''}
   </header>
-  ${plaatje(openingsfoto, { klasse: 'opening' })}
+  ${plaatje(openingsfoto, { klasse: 'opening', toonBron: true })}
   ${feitjesBlok}
   ${rubrieken}
   ${agendaBlok}
