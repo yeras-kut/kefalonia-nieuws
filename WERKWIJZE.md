@@ -36,9 +36,16 @@ Schrijf `edities/JJJJ-MM-DD.json` (de datum van die maandag). Zie een bestaande
 editie voor de precieze vorm. Wat er in moet:
 
 - **titel** — geen "Nieuws week 38", maar de week in één zin gevat. Noem twee of
-  drie concrete dingen. Voorbeeld: "Een muziekschool, een aardbeving en het
-  mysterie van de reus".
-- **intro** — twee tot drie zinnen die de week samenvatten.
+  drie concrete dingen. **Begin met iets positiefs of opmerkelijks als dat er is.**
+  Een titel die opent met een sterfgeval of een ramp zet de hele editie in een
+  toon die zelden klopt met wat er die week werkelijk speelde.
+- **intro** — twee tot drie zinnen die de week samenvatten. Informatief, niet
+  dramatisch. Zwaar nieuws mag erin, maar dan zakelijk en zonder opsmuk: schrijf
+  "stond stil bij september 1943", niet "herdacht de slachting"; schrijf "het
+  veulen heeft het niet gehaald", niet "zag het veulen sterven". Vermijd woorden
+  die een groep wegzetten — "inwoners met een buitenlandse nationaliteit", niet
+  "buitenlanders". De lezer moet na de intro weten wat er speelde, niet
+  bedrukt raken.
 - **categorieen** — alleen de categorieën die deze week echt iets te melden hebben.
   Verzin er geen om een lijstje vol te maken; een week met weinig nieuws mag kort.
   Gebruikelijke rubrieken: Onderwijs, Zorg en veiligheid, Infrastructuur en verkeer,

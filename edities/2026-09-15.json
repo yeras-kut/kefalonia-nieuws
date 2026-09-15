@@ -4,16 +4,16 @@
     "van": "2026-09-08",
     "tot": "2026-09-15"
   },
-  "titel": "Het einde van Bella, 1.166 Airbnb's en de zwijnen van Atokos",
-  "intro": "Kefalonia herdacht de slachting van de Acqui-divisie, kreeg een beving van 4,9 en zag het veulen van de Ainos toch nog sterven. Ondertussen telde iemand de Airbnb-adressen van Argostoli en bleek het eiland van Odysseus zich langzaam te vullen met buitenlanders. En op een rots bij Ithaka zwemmen wilde zwijnen in zee, tot verbazing van het Franse persbureau.",
+  "titel": "Een muziekschool in Lixouri, 1.166 Airbnb's en de zwijnen van Atokos",
+  "intro": "Lixouri kreeg zijn muziekgymnasium, met 21 leerlingen in de eerste lichting. Verder telde iemand de Airbnb-adressen van Argostoli en kwam op 1.166, beefde de aarde bij Paliki met 4,9, en stond Argostoli stil bij september 1943. En op een vrijwel onbewoond rotseiland bij Ithaka zwemmen wilde zwijnen in zee — het Franse persbureau maakte er een reportage over.",
   "categorieen": [
     {
       "naam": "Herdenking",
       "emoji": "🕯️",
       "items": [
         {
-          "kop": "83 jaar na de slachting van de Acqui-divisie",
-          "tekst": "Maandag 14 september stond Argostoli stil bij de 83e verjaardag van de slachting van de Italiaanse Acqui-divisie in september 1943. Het Italiaanse fregat Paolo Thaon di Revel lag in de haven; ambassadeur Cuculi legde een krans bij het monument voor de gevallenen, net als de gemeente Argostoli en de onderprefect van Kefalonia en Ithaka. Vrijwel elke lokale site opende ermee — het is de ene week van het jaar waarin het eiland en Italië elkaar zonder omhaal vinden.",
+          "kop": "83 jaar na de massamoord op de Acqui-divisie",
+          "tekst": "Maandag 14 september stond Argostoli stil bij de 83e verjaardag van de massamoord op de Italiaanse Acqui-divisie in september 1943. Het Italiaanse fregat Paolo Thaon di Revel lag in de haven; ambassadeur Cuculi legde een krans bij het monument voor de gevallenen, net als de gemeente Argostoli en de onderprefect van Kefalonia en Ithaka. Vrijwel elke lokale site opende ermee — het is de ene week van het jaar waarin het eiland en Italië elkaar zonder omhaal vinden.",
           "bron": "Kefalonia Life / Kefalonia News / Kefalonia Press",
           "link": "https://kefalonialife.gr/"
         }
@@ -381,8 +381,8 @@
     "relevant": 462
   },
   "openingsfoto": {
-    "url": "https://www.kefaloniapress.gr/wp-content/uploads/2026/09/aktinografia-alogoy-2-768x432.jpg",
-    "bijschrift": "Het veulen Bella op de Ainos",
-    "bron": "Kefalonia Press"
+    "url": "https://kefalonialife.gr/wp-content/uploads/2026/09/egkainia-mousikou-sxoleiou-kefalonias-sto-lixouri-09-09-2026-by-matina-spiratou-12-768x512.jpg",
+    "bijschrift": "De opening van het Muziekgymnasium van Kefalonia in Lixouri",
+    "bron": "Kefalonia Life"
   }
 }
