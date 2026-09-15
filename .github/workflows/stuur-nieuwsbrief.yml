@@ -1,0 +1,65 @@
+name: Nieuwsbrief versturen
+
+# Draait zodra er een nieuwe editie gepubliceerd wordt. De wekelijkse agent doet
+# dat elke maandagochtend; publiceren en versturen zijn zo één handeling.
+# Mislukt de agent, dan verschijnt er geen editie en gaat er dus ook geen mail uit.
+on:
+  push:
+    branches: [main]
+    paths: ['edities/**']
+  workflow_dispatch:
+    inputs:
+      alleen_proef:
+        description: 'Alleen de proef bouwen, niets versturen'
+        type: boolean
+        default: true
+
+jobs:
+  versturen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instellingen samenstellen uit secrets
+        env:
+          AFZENDER: ${{ secrets.MAIL_AFZENDER }}
+          ONTVANGERS: ${{ secrets.MAIL_ONTVANGERS }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            fs.writeFileSync("instellingen.json", JSON.stringify({
+              afzender: process.env.AFZENDER,
+              ontvangers: process.env.ONTVANGERS.split(",").map(s => s.trim()),
+              resendSleutel: "",
+              paginaUrl: "https://yeras-kut.github.io/kefalonia-nieuws/",
+            }, null, 2));
+          '
+
+      - name: Proef bouwen
+        run: node scripts/stuur-mail.mjs --proef
+
+      # De schakelaar: er gaat pas echt mail uit als de repo-variabele
+      # MAIL_ACTIEF op 'ja' staat. Tot die tijd bouwt de workflow alleen de
+      # proef, zodat je de opmaak kunt bekijken zonder dat iemand post krijgt.
+      - name: Versturen
+        if: vars.MAIL_ACTIEF == 'ja' && (github.event_name == 'push' || inputs.alleen_proef == false)
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: node scripts/stuur-mail.mjs
+
+      - name: Melden dat versturen uitstaat
+        if: vars.MAIL_ACTIEF != 'ja'
+        run: |
+          echo "::notice::Mail niet verstuurd: repo-variabele MAIL_ACTIEF staat niet op 'ja'."
+          echo "Aanzetten met: gh variable set MAIL_ACTIEF --repo yeras-kut/kefalonia-nieuws --body ja"
+
+      - name: Proef bewaren om te bekijken
+        uses: actions/upload-artifact@v4
+        with:
+          name: proef-mail
+          path: proef-mail.html
+          retention-days: 14
