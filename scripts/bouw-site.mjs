@@ -141,6 +141,7 @@ function paginaHtml(editie, { isIndex, archief }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>${esc(titel)} — Kefalonia Wekelijks</title>
 <meta name="description" content="${esc(intro).slice(0, 160)}">
 <meta property="og:title" content="${esc(titel)}">
