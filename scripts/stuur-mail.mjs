@@ -118,15 +118,19 @@ if (proef) {
   process.exit(0);
 }
 
-const sleutel = process.env.RESEND_API_KEY || cfg.resendSleutel;
-if (!sleutel) {
-  console.error('Geen API-sleutel gevonden. Zet RESEND_API_KEY in de omgeving of resendSleutel in instellingen.json.');
-  process.exit(1);
-}
+// De sleutel kan op twee manieren komen:
+//  - lokaal: uit RESEND_API_KEY of instellingen.json, en wij zetten de header
+//  - in de cloud: helemaal niet. De agent-proxy van Anthropic plakt de
+//    Authorization-header er pas aan vast nadat het verzoek de sandbox verlaten
+//    heeft, zodat de agent de sleutel nooit ziet. Dan moeten wij hem weglaten.
+const sleutel = process.env.RESEND_API_KEY || cfg.resendSleutel || '';
+const headers = { 'Content-Type': 'application/json' };
+if (sleutel) headers.Authorization = `Bearer ${sleutel}`;
+else console.log('Geen sleutel in de omgeving — de agent-proxy wordt geacht hem toe te voegen.');
 
 const r = await fetch('https://api.resend.com/emails', {
   method: 'POST',
-  headers: { Authorization: `Bearer ${sleutel}`, 'Content-Type': 'application/json' },
+  headers,
   body: JSON.stringify({
     from: cfg.afzender,
     to: cfg.ontvangers,
@@ -139,6 +143,11 @@ const r = await fetch('https://api.resend.com/emails', {
 const antwoord = await r.json().catch(() => ({}));
 if (!r.ok) {
   console.error(`Versturen mislukt: HTTP ${r.status} — ${JSON.stringify(antwoord)}`);
+  if (r.status === 401) {
+    console.error('401 betekent dat er geen geldige sleutel bij het verzoek zat. Draai je lokaal,');
+    console.error('vul dan resendSleutel in instellingen.json. Draai je in de cloud, controleer dan');
+    console.error('de API credential op de omgeving: host api.resend.com, header Authorization, prefix Bearer.');
+  }
   process.exit(1);
 }
 console.log(`Mail verstuurd naar ${cfg.ontvangers.join(', ')} — id ${antwoord.id}`);
