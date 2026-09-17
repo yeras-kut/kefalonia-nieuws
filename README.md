@@ -12,8 +12,14 @@ als webpagina en als mail.
    dat die sites óók publiceren, en houdt over wat echt over de eilanden gaat.
 3. Claude leest de oogst en schrijft er een editie van: `edities/JJJJ-MM-DD.json`.
 4. `scripts/bouw-site.mjs` maakt daar `index.html` en het archief van.
-5. `scripts/stuur-mail.mjs` maakt de mail en verstuurt hem via Resend naar de
-   ontvangers.
+5. `scripts/spark-concept.mjs` zet de mail als concept in Spark klaar, vanaf
+   info@yerassimo.nl. Een dagelijkse achtergrondtaak op de Mac
+   (`scripts/wekelijks-concept.sh`) haalt de nieuwe editie op en roept dat aan;
+   staat de editie van deze week al klaar, dan doet hij niets.
+
+Er is ook `scripts/stuur-mail.mjs`, dat via de Resend-API verstuurt vanuit een
+GitHub Actions-workflow. Dat werkt zodra het domein nieuws.yerassimo.nl bij
+Resend geverifieerd is; zolang dat niet zo is, loopt het versturen via Spark.
 
 Stap 1 tot en met 5 draaien elke maandag automatisch in een cloud-agent.
 
