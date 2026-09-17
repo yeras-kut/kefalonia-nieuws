@@ -31,36 +31,15 @@ if (!alleenTonen && existsSync(STAAT) && readFileSync(STAAT, 'utf8').trim() === 
   process.exit(0);
 }
 
+// De mail is een aankondiging, niet de editie zelf: periode, intro, en de link.
+// Alles wat de lezer verder wil weten staat op de pagina.
 const regels = [
   `_${datum(e.periode.van)} tot en met ${datum(e.periode.tot)}_`,
   '',
   e.intro,
   '',
   `**[Lees de hele editie, met foto's](${cfg.paginaUrl})**`,
-  '',
 ];
-
-if (e.feitjes?.length) {
-  regels.push('## Opmerkelijk', '');
-  for (const f of e.feitjes) regels.push(`- ${f.tekst}`);
-  regels.push('');
-}
-
-regels.push('## Verder deze week', '');
-for (const c of e.categorieen) {
-  regels.push(`**${c.naam}**`);
-  for (const i of c.items) regels.push(`- ${i.kop}`);
-  regels.push('');
-}
-
-if (e.agenda?.length) {
-  regels.push('## Op de kalender', '');
-  for (const a of e.agenda) regels.push(`- **${a.datum}** — ${a.wat}`);
-  regels.push('');
-}
-
-regels.push('---', '', `Alle verhalen voluit staan op ${cfg.paginaUrl}`,
-  `Automatisch samengesteld uit ${e.statistiek?.bronnen ?? '?'} Kefalonische bronnen.`);
 
 const body = regels.join('\n');
 
