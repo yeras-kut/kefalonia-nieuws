@@ -11,9 +11,10 @@ echo "--- $(date '+%Y-%m-%d %H:%M') ---"
 # Nieuwe editie ophalen die de cloud-agent gepubliceerd heeft
 /usr/bin/git pull --rebase --quiet origin main || { echo "git pull mislukte"; exit 1; }
 
-# Spark moet draaien; anders morgen opnieuw
-if ! pgrep -qx "Spark" && ! pgrep -qf "Spark.app"; then
-  echo "Spark Desktop draait niet — morgen opnieuw."
+# Spark moet antwoorden. Procesnamen veranderen tussen versies, dus we vragen
+# het de CLI zelf: reageert die niet, dan is de app dicht en proberen we morgen.
+if ! spark accounts >/dev/null 2>&1; then
+  echo "Spark Desktop reageert niet — morgen opnieuw."
   exit 0
 fi
 
