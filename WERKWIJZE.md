@@ -77,6 +77,11 @@ editie voor de precieze vorm. Wat er in moet:
   Berichten zonder foto zijn prima — de pagina vangt dat op. Neem nooit een foto
   bij een bericht waar hij niet bij hoort, en gebruik geen foto bij gevoelig
   nieuws zoals overlijdensberichten of ongelukken tenzij hij neutraal is.
+  **Geen AI-plaatjes.** Kefalonia Magazine illustreert nieuws vaak met een
+  gegenereerde afbeelding; je herkent ze aan `ChatGPT-Image` in de bestandsnaam.
+  Die zijn geen verslag van wat er gebeurd is en horen niet in de editie. Kijk ook
+  naar het jaar in het pad: `/uploads/2019/` bij nieuws van deze week is een oude
+  archieffoto. Bij een gebouw of een dorp kan dat, bij een gebeurtenis niet.
 - **agenda** — wat er de komende twee weken te doen is: feesten, raadsvergaderingen,
   concerten, wegafsluitingen.
 - **weer** — een kort algemeen weerbericht voor de week die komt: twee of drie

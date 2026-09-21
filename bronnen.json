@@ -19,6 +19,26 @@
       "naam": "Dimos Argostoli",
       "host": "argostoli.gov.gr",
       "soort": "gemeente"
+    },
+    {
+      "naam": "Kefalonia Magazine",
+      "host": "kefaloniamagazine.gr",
+      "soort": "nieuws"
+    },
+    {
+      "naam": "eKefalonia",
+      "host": "ekefalonia.gr",
+      "soort": "nieuws"
+    },
+    {
+      "naam": "Kefalonia Focus",
+      "host": "kefaloniafocus.com",
+      "soort": "nieuws"
+    },
+    {
+      "naam": "Efimerida Kefalonia",
+      "host": "efimeridakefalonia.gr",
+      "soort": "nieuws"
     }
   ],
   "googlenews": [
