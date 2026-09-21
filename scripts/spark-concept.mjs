@@ -17,6 +17,8 @@ const cfg = JSON.parse(readFileSync(join(WORTEL, 'instellingen.json'), 'utf8'));
 const alleenTonen = process.argv.includes('--toon');
 const versturen = process.argv.includes('--versturen');
 const STAAT = join(WORTEL, '.laatst-verstuurd');
+// Volledig pad: een achtergrondtaak krijgt een kale PATH zonder /usr/local/bin.
+const SPARK = process.env.SPARK_BIN || '/usr/local/bin/spark';
 
 const NL_MAAND = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
 const datum = iso => { const d = new Date(iso + 'T12:00:00'); return `${d.getDate()} ${NL_MAAND[d.getMonth()]}`; };
@@ -51,7 +53,7 @@ args.push('--subject', `Kefalonia Wekelijks — ${e.titel}`, '--body', body);
 
 let uit;
 try {
-  uit = execFileSync('spark', args, { encoding: 'utf8' });
+  uit = execFileSync(SPARK, args, { encoding: 'utf8' });
 } catch (err) {
   console.error('spark draft mislukte. Draait Spark Desktop?');
   console.error(String(err.stdout || '') + String(err.stderr || ''));
@@ -63,7 +65,7 @@ const id = (uit.match(/^ID:\s*(\d+)/m) || [])[1];
 
 if (versturen && id) {
   try {
-    console.log(execFileSync('spark', ['action', 'send', id], { encoding: 'utf8' }));
+    console.log(execFileSync(SPARK, ['action', 'send', id], { encoding: 'utf8' }));
   } catch (err) {
     console.error('Versturen mislukte; het concept staat nog in Spark.');
     console.error(String(err.stdout || '') + String(err.stderr || ''));

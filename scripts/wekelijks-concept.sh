@@ -12,6 +12,8 @@ set -uo pipefail
 MAP=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 GIT=/usr/bin/git
 NODE="/Users/yerassimo/.local/bin/node"
+# Volledige paden: launchd geeft een kale PATH zonder /usr/local/bin.
+SPARK="/usr/local/bin/spark"
 cd "$MAP" || exit 1
 
 STAAT="$MAP/.laatst-verstuurd"
@@ -51,7 +53,7 @@ fi
 
 # Spark moet antwoorden. Procesnamen veranderen tussen versies, dus we vragen
 # het de CLI zelf: reageert die niet, dan is de app dicht en proberen we later.
-if ! spark accounts >/dev/null 2>&1; then
+if ! "$SPARK" accounts >/dev/null 2>&1; then
   echo "Spark Desktop reageert niet — later opnieuw."
   exit 0
 fi

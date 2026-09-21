@@ -13,9 +13,16 @@ als webpagina en als mail.
 3. Claude leest de oogst en schrijft er een editie van: `edities/JJJJ-MM-DD.json`.
 4. `scripts/bouw-site.mjs` maakt daar `index.html` en het archief van.
 5. `scripts/spark-concept.mjs` zet de mail als concept in Spark klaar, vanaf
-   info@yerassimo.nl. Een dagelijkse achtergrondtaak op de Mac
+   info@yerassimo.nl. Een achtergrondtaak op de Mac
    (`scripts/wekelijks-concept.sh`) haalt de nieuwe editie op en roept dat aan;
    staat de editie van deze week al klaar, dan doet hij niets.
+
+   Die taak (`nl.yerassimo.kefalonia-concept`) draait niet uit deze map, maar uit
+   een tweede werkkopie in `~/Library/Application Support/kefalonia-nieuws`.
+   macOS weigert launchd namelijk toegang tot de Desktop: dan staat er
+   `Operation not permitted` in `~/Library/Logs/kefalonia-concept.log`. Die
+   werkkopie haalt de editie van GitHub en heeft een eigen `instellingen.json`;
+   verander je die hier, kopieer hem dan ook daarheen.
 
 Er is ook `scripts/stuur-mail.mjs`, dat via de Resend-API verstuurt vanuit een
 GitHub Actions-workflow. Dat werkt zodra het domein nieuws.yerassimo.nl bij
