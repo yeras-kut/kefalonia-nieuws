@@ -184,6 +184,18 @@ netwerkinstellingen van de omgeving erbij — anders geeft die bron stilletjes e
 403 en mis je hem. Het logboek van `haal-nieuws.mjs` laat zien welke bronnen
 faalden; controleer dat elke week.
 
+Let op het verschil tussen twee soorten 403. `CONNECT tunnel failed, 403` komt van
+de witte lijst: het domein ontbreekt daar. Een kale `HTTP 403` komt van de site
+zelf, die het IP-adres van de sandbox weigert. Dat tweede kun je niet oplossen met
+de witte lijst. Zo verging het `efimeridakefalonia.gr`, dat lokaal prima werkt maar
+in de cloud dichtblijft; die bron is er daarom weer uit gehaald. Het scheelde weinig,
+want zijn berichten stonden vrijwel allemaal ook bij een van de andere bronnen.
+
+Bronnen die alleen via Google News binnenkomen (InKefalonia, Kefalonitika Nea,
+Portoni) leveren een `news.google.com`-omleiding als link in plaats van het artikel
+zelf. Die link werkt voor de lezer, maar zoek eerst of hetzelfde verhaal bij een
+bron staat die je rechtstreeks ophaalt, en link dan daarheen.
+
 ## 6. Afsluiten
 
 Meld in één alinea: welke verhalen deze week het belangrijkst waren, hoeveel
