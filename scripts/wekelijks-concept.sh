@@ -8,7 +8,8 @@
 # te doen en raakt het script het netwerk niet aan.
 set -uo pipefail
 
-MAP="/Users/yerassimo/Desktop/Claude-projecten/Wekelijks nieuws kefalonia"
+# De map waarin dit script staat, zodat elke werkkopie zichzelf vindt.
+MAP=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 GIT=/usr/bin/git
 NODE="/Users/yerassimo/.local/bin/node"
 cd "$MAP" || exit 1
