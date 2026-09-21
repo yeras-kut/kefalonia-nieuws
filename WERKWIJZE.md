@@ -79,6 +79,20 @@ editie voor de precieze vorm. Wat er in moet:
   nieuws zoals overlijdensberichten of ongelukken tenzij hij neutraal is.
 - **agenda** — wat er de komende twee weken te doen is: feesten, raadsvergaderingen,
   concerten, wegafsluitingen.
+- **weer** — een kort algemeen weerbericht voor de week die komt: twee of drie
+  zinnen, met temperatuur en wind, en vooral het kantelpunt ("vanaf dinsdag draait
+  het"). Geen dag-voor-dagtabel; de lezer wil het gevoel van de week. De bronnen
+  publiceren bijna dagelijks een weerstuk (zoek op `kairos` in de oogst); pak het
+  meest recente en kijk vooruit, niet terug. Velden: `tekst`, `bron`, `link` en
+  eventueel `foto`. Staat er geen weerbericht in de oogst, laat het veld dan weg —
+  de pagina en de mail slaan het blok dan over. Dit is het enige stuk dat ook in
+  de mail zelf komt, want een link is te laat voor het weer.
+- **leukEnOpvallend** — twee tot vier lichte berichten die onderaan de editie
+  staan, mét foto: een eiland dat op de landelijke televisie komt, een duikploeg
+  die de haven schoonmaakt, het verhaal achter een kerk waar deze week feest is.
+  Verschil met **feitjes**: feitjes zijn eenregelige weetjes zonder foto bovenaan,
+  dit zijn kleine verhalen van een paar zinnen met een foto erbij. Neem hier geen
+  bericht op dat al in een rubriek staat. Velden: `tekst`, `bron`, `link`, `foto`.
 - **statistiek** — het aantal bronnen, gescande en relevante berichten.
 
 ### Toon

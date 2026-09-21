@@ -39,9 +39,13 @@ const regels = [
   `_${datum(e.periode.van)} tot en met ${datum(e.periode.tot)}_`,
   '',
   e.intro,
-  '',
-  `**[Lees de hele editie, met foto's](${cfg.paginaUrl})**`,
 ];
+
+// Het weer is de uitzondering op "alleen een aankondiging": het gaat over de
+// week die nog komt, en dan is een link te laat.
+if (e.weer?.tekst) regels.push('', `**Het weer deze week.** ${e.weer.tekst}`);
+
+regels.push('', `**[Lees de hele editie, met foto's](${cfg.paginaUrl})**`);
 
 const body = regels.join('\n');
 

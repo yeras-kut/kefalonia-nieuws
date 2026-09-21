@@ -68,6 +68,29 @@ article.bericht p{margin:0 0 .5rem}
 .feitjes li{padding:.7rem 0;border-top:1px solid var(--lijn);display:flex;gap:.75rem}
 .feitjes li:first-of-type{border-top:0;padding-top:0}
 .feitjes li::before{content:"◆";color:var(--accent);flex:none;font-size:.7rem;line-height:1.9}
+.weer{display:flex;gap:1.25rem;align-items:flex-start;background:var(--kaart);
+  border:1px solid var(--lijn);border-left:3px solid var(--accent);border-radius:12px;
+  padding:1.5rem;margin:0 0 3rem;box-shadow:var(--schaduw)}
+.weer .tekst{flex:1 1 auto;min-width:0}
+.weer h2{margin:0 0 .5rem;font-size:1.05rem}
+.weer p{margin:0 0 .5rem}
+.weer figure{flex:0 0 11rem;margin:0}
+.weer figure img{border-radius:8px}
+@media (max-width:34rem){
+  .weer{flex-direction:column-reverse}
+  .weer figure{flex:none;width:100%}
+}
+.leuk{margin:0 0 3rem}
+.leuk .item{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 0;
+  border-top:1px solid var(--lijn)}
+.leuk .item:first-of-type{border-top:0}
+.leuk .item p{margin:0 0 .4rem}
+.leuk figure{flex:0 0 10rem;margin:0}
+.leuk figure img{border-radius:8px}
+@media (max-width:34rem){
+  .leuk .item{flex-direction:column}
+  .leuk figure{flex:none;width:100%;order:2}
+}
 .agenda{margin:0 0 3rem}
 .agenda ol{margin:0;padding:0;list-style:none}
 .agenda li{display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--lijn);
@@ -83,6 +106,7 @@ footer a{color:var(--zee)}
 @media print{
   body{background:#fff}
   .feitjes{background:#f6f6f6}
+  .weer{box-shadow:none}
   header.kop{padding-top:0}
 }
 `;
@@ -103,7 +127,7 @@ function plaatje(foto, { klasse = '', toonBron = false } = {}) {
 
 function paginaHtml(editie, { isIndex, archief }) {
   const { titel, intro, periode, categorieen = [], feitjes = [], agenda = [],
-          statistiek, openingsfoto } = editie;
+          statistiek, openingsfoto, weer, leukEnOpvallend = [] } = editie;
 
   const rubrieken = categorieen.map(c => `
     <section class="rubriek">
@@ -123,10 +147,37 @@ function paginaHtml(editie, { isIndex, archief }) {
       <ul>${feitjes.map(f => `<li><span>${esc(f.tekst)}${f.link ? ` <a class="herkomst" href="${esc(f.link)}" target="_blank" rel="noopener">(${esc(f.bron)})</a>` : ''}</span></li>`).join('')}</ul>
     </section>` : '';
 
+  // Het weer staat bovenaan: het is het enige stuk dat over de week gaat die
+  // nog komt, en de lezer die het eiland kent kijkt er als eerste naar.
+  const weerBlok = weer?.tekst ? `
+    <section class="weer">
+      <div class="tekst">
+        <div class="rubriek-kop"><span class="teken">\u26c5</span><h2>Het weer deze week</h2></div>
+        <p>${esc(weer.tekst)}</p>
+        ${weer.bron ? `<p class="herkomst">${weer.link ? `<a href="${esc(weer.link)}" target="_blank" rel="noopener">${esc(weer.bron)}</a>` : esc(weer.bron)}</p>` : ''}
+      </div>
+      ${plaatje(weer.foto)}
+    </section>` : '';
+
   const agendaBlok = agenda.length ? `
     <section class="agenda">
       <div class="rubriek-kop"><span class="teken">📅</span><h2>Op de kalender</h2></div>
       <ol>${agenda.map(a => `<li><span class="wanneer">${esc(a.datum)}</span><span>${esc(a.wat)}</span></li>`).join('')}</ol>
+    </section>` : '';
+
+  // Onderaan, met foto's: dit zijn kleine verhalen, geen eenregelige weetjes.
+  // Daarin verschilt het van "Opmerkelijk" bovenaan.
+  const leukBlok = leukEnOpvallend.length ? `
+    <section class="leuk">
+      <div class="rubriek-kop"><span class="teken">\u2728</span><h2>Leuk &amp; opvallend</h2></div>
+      ${leukEnOpvallend.map(i => `
+      <div class="item">
+        <div class="tekst">
+          <p>${esc(i.tekst)}</p>
+          <p class="herkomst">${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.bron)}</a>` : esc(i.bron)}</p>
+        </div>
+        ${plaatje(i.foto)}
+      </div>`).join('')}
     </section>` : '';
 
   const archiefBlok = (isIndex && archief.length > 1) ? `
@@ -159,9 +210,11 @@ function paginaHtml(editie, { isIndex, archief }) {
     ${intro ? `<p class="intro">${esc(intro)}</p>` : ''}
   </header>
   ${plaatje(openingsfoto, { klasse: 'opening', toonBron: true })}
+  ${weerBlok}
   ${feitjesBlok}
   ${rubrieken}
   ${agendaBlok}
+  ${leukBlok}
   ${archiefBlok}
   <footer>
     <p>Samengesteld uit ${statistiek?.bronnen ?? '?'} Kefalonische bronnen${statistiek?.berichtenGescand ? `, ${statistiek.berichtenGescand} berichten gescand` : ''}. Elke maandagochtend ververst.</p>

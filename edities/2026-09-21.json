@@ -362,5 +362,42 @@
     "bronnen": 11,
     "berichtenGescand": 756,
     "relevant": 451
-  }
+  },
+  "weer": {
+    "tekst": "Maandag 21 september voelde nog helemaal zomers: van zo'n 20 tot 23 graden in de ochtend naar een piek van 28 graden rond het middaguur. Vanaf dinsdag draait het. De noordwestenwind trekt fors aan, tot 5 a 6 Beaufort met stevige vlagen: het eerste echte herfstweer van dit jaar.",
+    "bron": "Kefalonia Press",
+    "link": "https://www.kefaloniapress.gr/topika/koinonika/article/899544/kefalonia-kalokairini-i-deytera-21-septemvrioy-stoys/",
+    "foto": {
+      "url": "https://www.kefaloniapress.gr/wp-content/uploads/2026/09/kairos-11.jpg",
+      "bijschrift": "Zomers weer boven het eiland, maandag 21 september",
+      "bron": "Kefalonia Press"
+    }
+  },
+  "leukEnOpvallend": [
+    {
+      "tekst": "Skala kwam op de landelijke televisie. In het weekendprogramma van Nikos Manesis op de zender Alpha lieten hij en Niki Stamatiadou een filmpje zien van wat zij het kosmopolitische strand van Skala noemden, opgenomen tijdens een bezoek samen met de wethouder van toerisme van Argostoli.",
+      "bron": "Portoni",
+      "link": "https://portoni.gr/i-kosmopolitiki-skala-kefalonias-stin-ekpompi-toy-nikoy-manesi/",
+      "foto": {
+        "url": "https://portoni.gr/wp-content/uploads/2026/09/fbimg1789902390131.jpg",
+        "bijschrift": "Skala in het weekendprogramma van Nikos Manesis",
+        "bron": "Portoni"
+      }
+    },
+    {
+      "tekst": "Duikers van de milieuorganisatie Aegean Rebreath haalden de zeebodem langs de Piso Agora, de kade van Argostoli, leeg. Boven water kwamen oude banden, fietsen en fietsonderdelen, flessen van glas en plastic, blikken en zelfs winkelmandjes. De gemeente hielp mee; twee jaar geleden was dezelfde plek ook al schoongemaakt.",
+      "bron": "Kefalonia Magazine",
+      "link": "https://kefaloniamagazine.gr/politiki/rgostoli-katharismos-vythou-piso-agora-aegean-rebreath/"
+    },
+    {
+      "tekst": "En een mooi stuk geschiedenis: Agia Thekli, van Milaan naar Kefalonia. Rond 350 na Christus kreeg de heilige een reusachtige basiliek in Milaan; Byzantijnse soldaten brachten haar verering mee naar het eiland. De familie Loverdos nam de kerk onder haar hoede en herbouwde hem na de aardbevingen van 1863 en 1867. Het feest is op 24 september.",
+      "bron": "Kefalonia Press",
+      "link": "https://www.kefaloniapress.gr/topika/apopseis-topika/article/899188/agia-thekli-apo-to-milano-stin-kefalonia/",
+      "foto": {
+        "url": "https://www.kefaloniapress.gr/wp-content/uploads/2026/09/agia-thekli-10.jpg",
+        "bijschrift": "De kerk van Agia Thekli",
+        "bron": "Kefalonia Press"
+      }
+    }
+  ]
 }

@@ -61,6 +61,29 @@ article.bericht p{margin:0 0 .5rem}
 .feitjes li{padding:.7rem 0;border-top:1px solid var(--lijn);display:flex;gap:.75rem}
 .feitjes li:first-of-type{border-top:0;padding-top:0}
 .feitjes li::before{content:"◆";color:var(--accent);flex:none;font-size:.7rem;line-height:1.9}
+.weer{display:flex;gap:1.25rem;align-items:flex-start;background:var(--kaart);
+  border:1px solid var(--lijn);border-left:3px solid var(--accent);border-radius:12px;
+  padding:1.5rem;margin:0 0 3rem;box-shadow:var(--schaduw)}
+.weer .tekst{flex:1 1 auto;min-width:0}
+.weer h2{margin:0 0 .5rem;font-size:1.05rem}
+.weer p{margin:0 0 .5rem}
+.weer figure{flex:0 0 11rem;margin:0}
+.weer figure img{border-radius:8px}
+@media (max-width:34rem){
+  .weer{flex-direction:column-reverse}
+  .weer figure{flex:none;width:100%}
+}
+.leuk{margin:0 0 3rem}
+.leuk .item{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 0;
+  border-top:1px solid var(--lijn)}
+.leuk .item:first-of-type{border-top:0}
+.leuk .item p{margin:0 0 .4rem}
+.leuk figure{flex:0 0 10rem;margin:0}
+.leuk figure img{border-radius:8px}
+@media (max-width:34rem){
+  .leuk .item{flex-direction:column}
+  .leuk figure{flex:none;width:100%;order:2}
+}
 .agenda{margin:0 0 3rem}
 .agenda ol{margin:0;padding:0;list-style:none}
 .agenda li{display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--lijn);
@@ -76,6 +99,7 @@ footer a{color:var(--zee)}
 @media print{
   body{background:#fff}
   .feitjes{background:#f6f6f6}
+  .weer{box-shadow:none}
   header.kop{padding-top:0}
 }
 </style>
@@ -94,6 +118,7 @@ footer a{color:var(--zee)}
       referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
     <figcaption>De opening van het Muziekgymnasium van Kefalonia in Lixouri · Kefalonia Life</figcaption>
   </figure>
+  
   
     <section class="feitjes">
       <h2>Opmerkelijk</h2>
@@ -317,6 +342,7 @@ footer a{color:var(--zee)}
       <div class="rubriek-kop"><span class="teken">📅</span><h2>Op de kalender</h2></div>
       <ol><li><span class="wanneer">wo 16 sep</span><span>Gemeenteraad Argostoli, 18e reguliere vergadering, zeven onderwerpen</span></li><li><span class="wanneer">vr 18 sep</span><span>21e vergadering Regioraad Ionische Eilanden, zestien onderwerpen</span></li><li><span class="wanneer">vr 18 &amp; za 19 sep</span><span>42e Korenontmoeting van Kefalonia, Argostoli — gratis toegang</span></li><li><span class="wanneer">za 19 sep</span><span>Kunstwerkplaats voor kinderen van 9 tot 12 jaar, Botanische Tuin van Kefalonia</span></li><li><span class="wanneer">za 19 &amp; zo 20 sep</span><span>Tweedaags Zaden- en Biodiversiteitsfestival, Botanische Tuin van Kefalonia</span></li><li><span class="wanneer">ma 21 sep</span><span>Laatste dag voor gratis inschrijving bij de SAEK-opleiding van het ziekenhuis van Kefalonia</span></li><li><span class="wanneer">do 24 sep</span><span>Argostoli eert schutspatrones Panagia Drapaniotissa (Myrtidiotissa), met vespers op woensdagavond en processies</span></li><li><span class="wanneer">tot 26 sep</span><span>Groepstentoonstelling collectie Kostas Evangelatos, Villa Rodopi Art, Argostoli</span></li><li><span class="wanneer">zo 4 okt</span><span>Terugkeer van de icoon van de Drapaniotissa naar Drapano, met litanie vanaf de Agios Spyridon</span></li><li><span class="wanneer">tot 8 nov</span><span>Odos Souidias in Sami gedeeltelijk afgesloten</span></li></ol>
     </section>
+  
   
   <footer>
     <p>Samengesteld uit 12 Kefalonische bronnen, 765 berichten gescand. Elke maandagochtend ververst.</p>

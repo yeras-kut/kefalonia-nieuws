@@ -61,6 +61,29 @@ article.bericht p{margin:0 0 .5rem}
 .feitjes li{padding:.7rem 0;border-top:1px solid var(--lijn);display:flex;gap:.75rem}
 .feitjes li:first-of-type{border-top:0;padding-top:0}
 .feitjes li::before{content:"◆";color:var(--accent);flex:none;font-size:.7rem;line-height:1.9}
+.weer{display:flex;gap:1.25rem;align-items:flex-start;background:var(--kaart);
+  border:1px solid var(--lijn);border-left:3px solid var(--accent);border-radius:12px;
+  padding:1.5rem;margin:0 0 3rem;box-shadow:var(--schaduw)}
+.weer .tekst{flex:1 1 auto;min-width:0}
+.weer h2{margin:0 0 .5rem;font-size:1.05rem}
+.weer p{margin:0 0 .5rem}
+.weer figure{flex:0 0 11rem;margin:0}
+.weer figure img{border-radius:8px}
+@media (max-width:34rem){
+  .weer{flex-direction:column-reverse}
+  .weer figure{flex:none;width:100%}
+}
+.leuk{margin:0 0 3rem}
+.leuk .item{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 0;
+  border-top:1px solid var(--lijn)}
+.leuk .item:first-of-type{border-top:0}
+.leuk .item p{margin:0 0 .4rem}
+.leuk figure{flex:0 0 10rem;margin:0}
+.leuk figure img{border-radius:8px}
+@media (max-width:34rem){
+  .leuk .item{flex-direction:column}
+  .leuk figure{flex:none;width:100%;order:2}
+}
 .agenda{margin:0 0 3rem}
 .agenda ol{margin:0;padding:0;list-style:none}
 .agenda li{display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--lijn);
@@ -76,6 +99,7 @@ footer a{color:var(--zee)}
 @media print{
   body{background:#fff}
   .feitjes{background:#f6f6f6}
+  .weer{box-shadow:none}
   header.kop{padding-top:0}
 }
 </style>
@@ -94,6 +118,19 @@ footer a{color:var(--zee)}
       referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
     <figcaption>Koren en mandolines op het Lithostroto in Argostoli, 42e Korenontmoeting · Kefalonia Press</figcaption>
   </figure>
+  
+    <section class="weer">
+      <div class="tekst">
+        <div class="rubriek-kop"><span class="teken">⛅</span><h2>Het weer deze week</h2></div>
+        <p>Maandag 21 september voelde nog helemaal zomers: van zo'n 20 tot 23 graden in de ochtend naar een piek van 28 graden rond het middaguur. Vanaf dinsdag draait het. De noordwestenwind trekt fors aan, tot 5 a 6 Beaufort met stevige vlagen: het eerste echte herfstweer van dit jaar.</p>
+        <p class="herkomst"><a href="https://www.kefaloniapress.gr/topika/koinonika/article/899544/kefalonia-kalokairini-i-deytera-21-septemvrioy-stoys/" target="_blank" rel="noopener">Kefalonia Press</a></p>
+      </div>
+      <figure>
+    <img src="https://www.kefaloniapress.gr/wp-content/uploads/2026/09/kairos-11.jpg" alt="Zomers weer boven het eiland, maandag 21 september" loading="lazy"
+      referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
+    <figcaption>Zomers weer boven het eiland, maandag 21 september</figcaption>
+  </figure>
+    </section>
   
     <section class="feitjes">
       <h2>Opmerkelijk</h2>
@@ -330,6 +367,40 @@ footer a{color:var(--zee)}
     <section class="agenda">
       <div class="rubriek-kop"><span class="teken">📅</span><h2>Op de kalender</h2></div>
       <ol><li><span class="wanneer">ma 21 sep</span><span>Deel van de Babi Anninou in Argostoli dicht voor verkeer, 07.30 tot 14.00 uur</span></li><li><span class="wanneer">di 22 sep</span><span>48e vergadering van de gemeentecommissie van Argostoli</span></li><li><span class="wanneer">wo 23 sep</span><span>14e raadsvergadering van de gemeente Sami</span></li><li><span class="wanneer">wo 23 sep</span><span>Grote vespers voor de Panagia Drapaniotissa, Argostoli, 19.00 uur</span></li><li><span class="wanneer">do 24 sep</span><span>Argostoli viert zijn schutspatrones, de Panagia Drapaniotissa (Myrtidiotissa), met dienst en processies</span></li><li><span class="wanneer">do 24 sep</span><span>De drie verdachten in de zaak rond de dood van Myrto verschijnen in Argostoli voor de rechter-commissaris</span></li><li><span class="wanneer">do 24 t/m zo 27 sep</span><span>Stay Active Kefalonia, vierde jaargang: wandeltochten bij Skala (24), Argostoli (25) en op de Ainos (26), met op zondag de Ainos-marathon in drie afstanden</span></li><li><span class="wanneer">tot 26 sep</span><span>Groepstentoonstelling uit de collectie van Villa Rodopi Art, Argostoli</span></li><li><span class="wanneer">zo 27 sep</span><span>De &quot;Vlam van de Liefde&quot;, 24e fakkelloop van de Griekse bloeddonorverenigingen, komt naar Argostoli en voor het eerst ook naar Lixouri, met olympisch atlete Katerina Thanou</span></li><li><span class="wanneer">zo 4 okt</span><span>De icoon van de Drapaniotissa keert terug naar Drapano, met een processie vanaf de Agios Spyridon, 17.00 uur</span></li><li><span class="wanneer">tot 8 nov</span><span>De Zwedenstraat in Sami blijft gedeeltelijk afgesloten</span></li></ol>
+    </section>
+  
+    <section class="leuk">
+      <div class="rubriek-kop"><span class="teken">✨</span><h2>Leuk &amp; opvallend</h2></div>
+      
+      <div class="item">
+        <div class="tekst">
+          <p>Skala kwam op de landelijke televisie. In het weekendprogramma van Nikos Manesis op de zender Alpha lieten hij en Niki Stamatiadou een filmpje zien van wat zij het kosmopolitische strand van Skala noemden, opgenomen tijdens een bezoek samen met de wethouder van toerisme van Argostoli.</p>
+          <p class="herkomst"><a href="https://portoni.gr/i-kosmopolitiki-skala-kefalonias-stin-ekpompi-toy-nikoy-manesi/" target="_blank" rel="noopener">Portoni</a></p>
+        </div>
+        <figure>
+    <img src="https://portoni.gr/wp-content/uploads/2026/09/fbimg1789902390131.jpg" alt="Skala in het weekendprogramma van Nikos Manesis" loading="lazy"
+      referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
+    <figcaption>Skala in het weekendprogramma van Nikos Manesis</figcaption>
+  </figure>
+      </div>
+      <div class="item">
+        <div class="tekst">
+          <p>Duikers van de milieuorganisatie Aegean Rebreath haalden de zeebodem langs de Piso Agora, de kade van Argostoli, leeg. Boven water kwamen oude banden, fietsen en fietsonderdelen, flessen van glas en plastic, blikken en zelfs winkelmandjes. De gemeente hielp mee; twee jaar geleden was dezelfde plek ook al schoongemaakt.</p>
+          <p class="herkomst"><a href="https://kefaloniamagazine.gr/politiki/rgostoli-katharismos-vythou-piso-agora-aegean-rebreath/" target="_blank" rel="noopener">Kefalonia Magazine</a></p>
+        </div>
+        
+      </div>
+      <div class="item">
+        <div class="tekst">
+          <p>En een mooi stuk geschiedenis: Agia Thekli, van Milaan naar Kefalonia. Rond 350 na Christus kreeg de heilige een reusachtige basiliek in Milaan; Byzantijnse soldaten brachten haar verering mee naar het eiland. De familie Loverdos nam de kerk onder haar hoede en herbouwde hem na de aardbevingen van 1863 en 1867. Het feest is op 24 september.</p>
+          <p class="herkomst"><a href="https://www.kefaloniapress.gr/topika/apopseis-topika/article/899188/agia-thekli-apo-to-milano-stin-kefalonia/" target="_blank" rel="noopener">Kefalonia Press</a></p>
+        </div>
+        <figure>
+    <img src="https://www.kefaloniapress.gr/wp-content/uploads/2026/09/agia-thekli-10.jpg" alt="De kerk van Agia Thekli" loading="lazy"
+      referrerpolicy="no-referrer" onerror="this.closest('figure').remove()">
+    <figcaption>De kerk van Agia Thekli</figcaption>
+  </figure>
+      </div>
     </section>
   
   <footer>
