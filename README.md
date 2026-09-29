@@ -12,10 +12,12 @@ als webpagina en als mail.
    dat die sites óók publiceren, en houdt over wat echt over de eilanden gaat.
 3. Claude leest de oogst en schrijft er een editie van: `edities/JJJJ-MM-DD.json`.
 4. `scripts/bouw-site.mjs` maakt daar `index.html` en het archief van.
-5. `scripts/spark-concept.mjs` zet de mail als concept in Spark klaar, vanaf
+5. `scripts/spark-concept.mjs --versturen` verstuurt de mail via Spark, vanaf
    info@yerassimo.nl. Een achtergrondtaak op de Mac
    (`scripts/wekelijks-concept.sh`) haalt de nieuwe editie op en roept dat aan;
-   staat de editie van deze week al klaar, dan doet hij niets.
+   is de editie van deze week al verstuurd, dan doet hij niets. Daarvoor moet
+   info@yerassimo.nl in Spark Desktop (Settings) op send-toegang staan; staat hij
+   op read-only, dan mislukt zelfs het concept.
 
    Die taak (`nl.yerassimo.kefalonia-concept`) draait niet uit deze map, maar uit
    een tweede werkkopie in `~/Library/Application Support/kefalonia-nieuws`.

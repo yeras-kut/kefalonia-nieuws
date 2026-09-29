@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Zet de nieuwste editie als concept in Spark klaar.
+# Verstuurt de nieuwste editie via Spark, vanaf info@yerassimo.nl.
 #
 # macOS start dit kort na het openen van de laptop en verder elk kwartier zolang
 # hij aan staat. Het script is daarom zo gebouwd dat het in het normale geval
@@ -58,4 +58,4 @@ if ! "$SPARK" accounts >/dev/null 2>&1; then
   exit 0
 fi
 
-"$NODE" scripts/spark-concept.mjs
+"$NODE" scripts/spark-concept.mjs --versturen

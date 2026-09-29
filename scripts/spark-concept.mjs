@@ -73,6 +73,8 @@ if (versturen && id) {
   } catch (err) {
     console.error('Versturen mislukte; het concept staat nog in Spark.');
     console.error(String(err.stdout || '') + String(err.stderr || ''));
+    // Toch als gedaan markeren: anders maakt de taak elk kwartier een nieuw concept.
+    writeFileSync(STAAT, e.editie + '\n');
     process.exit(1);
   }
 }
