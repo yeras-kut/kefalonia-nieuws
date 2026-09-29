@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-// Maakt de mail van de nieuwste editie en verstuurt hem via Resend.
+// Maakt de mail van de nieuwste editie en verstuurt hem via Gmail of Resend.
 // Gebruik:  node scripts/stuur-mail.mjs            (verstuurt)
 //           node scripts/stuur-mail.mjs --proef    (schrijft alleen proef-mail.html)
 //
-// De API-sleutel komt uit de omgevingsvariabele RESEND_API_KEY, of anders uit
-// instellingen.json. Die sleutel hoort nooit in de repo.
+// Staat GMAIL_APP_WACHTWOORD in de omgeving, dan gaat de mail via Gmail (SMTP,
+// met nodemailer) vanaf GMAIL_GEBRUIKER. Anders via Resend, met RESEND_API_KEY
+// of de sleutel uit instellingen.json. Geen van die geheimen hoort in de repo.
 
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -134,6 +135,36 @@ if (proef) {
   console.log(`Onderwerp: ${onderwerp}`);
   console.log(`Afzender:  ${cfg.afzender}`);
   console.log(`Aan:       ${cfg.ontvangers.join(', ')}`);
+  process.exit(0);
+}
+
+const gmailWachtwoord = process.env.GMAIL_APP_WACHTWOORD;
+if (gmailWachtwoord) {
+  const gebruiker = process.env.GMAIL_GEBRUIKER;
+  if (!gebruiker) { console.error('GMAIL_GEBRUIKER ontbreekt.'); process.exit(1); }
+  // Alleen hier nodig, en alleen in de workflow geïnstalleerd.
+  const { default: nodemailer } = await import('nodemailer');
+  const vervoer = nodemailer.createTransport({
+    host: 'smtp.gmail.com', port: 465, secure: true,
+    auth: { user: gebruiker, pass: gmailWachtwoord.replace(/\s/g, '') },
+  });
+  try {
+    const info = await vervoer.sendMail({
+      from: { name: 'Kefalonia Wekelijks', address: gebruiker },
+      to: cfg.ontvangers,
+      subject: onderwerp,
+      html,
+      text: tekst,
+    });
+    console.log(`Mail verstuurd via Gmail naar ${cfg.ontvangers.join(', ')} — id ${info.messageId}`);
+  } catch (err) {
+    console.error(`Versturen via Gmail mislukt: ${err.message}`);
+    if (err.responseCode === 535) {
+      console.error('535 betekent dat Gmail het wachtwoord weigert. Gebruik een app-wachtwoord');
+      console.error('(myaccount.google.com/apppasswords), niet je gewone wachtwoord.');
+    }
+    process.exit(1);
+  }
   process.exit(0);
 }
 

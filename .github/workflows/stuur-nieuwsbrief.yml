@@ -48,8 +48,13 @@ jobs:
       - name: Versturen
         if: vars.MAIL_ACTIEF == 'ja' && (github.event_name == 'push' || inputs.alleen_proef == false)
         env:
+          # Met een Gmail-app-wachtwoord gaat de mail via Gmail; zonder via Resend.
+          GMAIL_GEBRUIKER: ${{ secrets.GMAIL_GEBRUIKER }}
+          GMAIL_APP_WACHTWOORD: ${{ secrets.GMAIL_APP_WACHTWOORD }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-        run: node scripts/stuur-mail.mjs
+        run: |
+          npm install --no-save --silent nodemailer@6
+          node scripts/stuur-mail.mjs
 
       - name: Melden dat versturen uitstaat
         if: vars.MAIL_ACTIEF != 'ja'

@@ -12,23 +12,18 @@ als webpagina en als mail.
    dat die sites óók publiceren, en houdt over wat echt over de eilanden gaat.
 3. Claude leest de oogst en schrijft er een editie van: `edities/JJJJ-MM-DD.json`.
 4. `scripts/bouw-site.mjs` maakt daar `index.html` en het archief van.
-5. `scripts/spark-concept.mjs --versturen` verstuurt de mail via Spark, vanaf
-   info@yerassimo.nl. Een achtergrondtaak op de Mac
-   (`scripts/wekelijks-concept.sh`) haalt de nieuwe editie op en roept dat aan;
-   is de editie van deze week al verstuurd, dan doet hij niets. Daarvoor moet
-   info@yerassimo.nl in Spark Desktop (Settings) op send-toegang staan; staat hij
-   op read-only, dan mislukt zelfs het concept.
+5. De push van de editie start de workflow `.github/workflows/stuur-nieuwsbrief.yml`.
+   Die verstuurt de mail met `scripts/stuur-mail.mjs` via Gmail (smtp.gmail.com),
+   vanaf het adres in secret `GMAIL_GEBRUIKER`, met een app-wachtwoord in secret
+   `GMAIL_APP_WACHTWOORD`. De Mac hoeft er niet voor aan te staan. Er gaat pas
+   echt mail uit als repo-variabele `MAIL_ACTIEF` op `ja` staat.
 
-   Die taak (`nl.yerassimo.kefalonia-concept`) draait niet uit deze map, maar uit
-   een tweede werkkopie in `~/Library/Application Support/kefalonia-nieuws`.
-   macOS weigert launchd namelijk toegang tot de Desktop: dan staat er
-   `Operation not permitted` in `~/Library/Logs/kefalonia-concept.log`. Die
-   werkkopie haalt de editie van GitHub en heeft een eigen `instellingen.json`;
-   verander je die hier, kopieer hem dan ook daarheen.
-
-Er is ook `scripts/stuur-mail.mjs`, dat via de Resend-API verstuurt vanuit een
-GitHub Actions-workflow. Dat werkt zodra het domein nieuws.yerassimo.nl bij
-Resend geverifieerd is; zolang dat niet zo is, loopt het versturen via Spark.
+Zonder Gmail-secrets valt `stuur-mail.mjs` terug op Resend (dat nooit werkend
+geverifieerd is geraakt). Er is ook nog `scripts/spark-concept.mjs`, dat de mail
+als concept in Spark zet via een achtergrondtaak op de Mac
+(`nl.yerassimo.kefalonia-concept`, uit een tweede werkkopie in
+`~/Library/Application Support/kefalonia-nieuws`). Die taak staat uit sinds de
+Gmail-route er is; de plist staat als `.plist.uit` in `~/Library/LaunchAgents`.
 
 Stap 1 tot en met 5 draaien elke maandag automatisch in een cloud-agent.
 
