@@ -141,7 +141,7 @@ const html = `<!doctype html>
 
 // Platte tekst voor clients die geen HTML tonen
 const tekst = [
-  `KEFALONIA — WEKELIJKS`,
+  `KEFALONIA WEKELIJKS`,
   e.titel,
   `${langeDatum(e.periode.van)} t/m ${langeDatum(e.periode.tot)}`,
   ...(e.verbeterd ? ['', 'Verbeterde versie: alle berichten zijn opnieuw naast de bronartikelen gelegd.'] : []),
@@ -155,7 +155,7 @@ const tekst = [
   `Hele editie online: ${paginaUrl}`,
 ].join('\n');
 
-const onderwerp = `Kefalonia Wekelijks — ${e.titel}${e.verbeterd ? ' (verbeterde versie)' : ''}`;
+const onderwerp = `Kefalonia Wekelijks: ${e.titel}${e.verbeterd ? ' (verbeterde versie)' : ''}`;
 
 if (proef) {
   writeFileSync(join(WORTEL, 'proef-mail.html'), html);
