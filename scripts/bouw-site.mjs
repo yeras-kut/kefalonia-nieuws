@@ -15,6 +15,12 @@ const langeDatum = iso => {
   const d = new Date(iso + 'T12:00:00');
   return `${d.getDate()} ${NL_MAAND[d.getMonth()]} ${d.getFullYear()}`;
 };
+const NL_DAG = ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'];
+const NL_MAAND_KORT = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+const korteDatum = iso => {
+  const d = new Date(iso + 'T12:00:00');
+  return `${NL_DAG[d.getDay()]} ${d.getDate()} ${NL_MAAND_KORT[d.getMonth()]}`;
+};
 
 const STIJL = `
 :root{
@@ -40,6 +46,21 @@ header.kop{padding:3.5rem 0 2rem;border-bottom:2px solid var(--inkt);margin-bott
 h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,5.5vw,2.9rem);
   line-height:1.15;margin:0 0 .75rem;letter-spacing:-.015em;font-weight:700}
 .periode{color:var(--inkt-zacht);font-size:.9rem;margin:0}
+.verbeterd{color:var(--inkt-zacht);font-size:.85rem;margin:.5rem 0 0;padding-left:.7rem;
+  border-left:3px solid var(--accent)}
+.hoofdpunten{margin:1.5rem 0 0;padding:0;list-style:none}
+.hoofdpunten li{padding:.6rem 0;border-top:1px solid var(--lijn);font-size:1.08rem;
+  line-height:1.4;font-weight:600;display:flex;gap:.7rem}
+.hoofdpunten li::before{content:"→";color:var(--accent);flex:none}
+.hoofdpunten a{color:inherit;text-decoration:none}
+.hoofdpunten a:hover{color:var(--zee)}
+.inhoud{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2.5rem;padding:0;list-style:none}
+.inhoud a{display:block;padding:.4rem .8rem;border:1px solid var(--lijn);border-radius:999px;
+  background:var(--kaart);color:var(--inkt);text-decoration:none;font-size:.85rem;white-space:nowrap}
+.inhoud a:hover{border-color:var(--zee);color:var(--zee)}
+.inhoud .aantal{color:var(--inkt-zacht);margin-left:.3rem;font-variant-numeric:tabular-nums}
+html{scroll-behavior:smooth}
+section[id],article[id]{scroll-margin-top:1rem}
 .intro{font-size:1.15rem;line-height:1.6;color:var(--inkt-zacht);margin:1.5rem 0 0;
   font-family:Georgia,serif;font-style:italic}
 h2{font-family:Georgia,serif;font-size:1.35rem;margin:0;letter-spacing:-.01em}
@@ -58,9 +79,11 @@ figcaption{font-size:.78rem;color:var(--inkt-zacht);margin-top:.35rem;line-heigh
 .opening figcaption{font-size:.82rem}
 article.bericht h3{font-size:1.05rem;margin:0 0 .4rem;line-height:1.35;font-weight:650}
 article.bericht p{margin:0 0 .5rem}
-.herkomst{font-size:.8rem;color:var(--inkt-zacht)}
-.herkomst a{color:var(--zee);text-decoration:none;border-bottom:1px solid transparent}
+.herkomst{font-size:.82rem;color:var(--inkt-zacht)}
+.herkomst a{color:var(--zee);text-decoration:none;border-bottom:1px solid transparent;font-weight:600}
 .herkomst a:hover{border-bottom-color:var(--zee)}
+.herkomst .wanneer{margin-right:.5rem}
+.herkomst .wanneer::after{content:"·";margin-left:.5rem}
 .feitjes{background:var(--zee-licht);border-radius:12px;padding:1.75rem;margin:0 0 3rem;
   border:1px solid var(--lijn)}
 .feitjes h2{margin-bottom:1rem}
@@ -125,19 +148,36 @@ function plaatje(foto, { klasse = '', toonBron = false } = {}) {
   </figure>`;
 }
 
+// De lezer moet kunnen zien dat de naam van de site een link naar het artikel is.
+const origineel = (bron, link, datum) => `<p class="herkomst">${datum ? `<span class="wanneer">${esc(korteDatum(datum))}</span>` : ''}${
+  link ? `<a href="${esc(link)}" target="_blank" rel="noopener">Lees het origineel bij ${esc(bron)} →</a>` : esc(bron)}</p>`;
+
 function paginaHtml(editie, { isIndex, archief }) {
   const { titel, intro, periode, categorieen = [], feitjes = [], agenda = [],
-          statistiek, openingsfoto, weer, leukEnOpvallend = [] } = editie;
+          statistiek, openingsfoto, weer, leukEnOpvallend = [], hoofdpunten = [], verbeterd } = editie;
 
-  const rubrieken = categorieen.map(c => `
-    <section class="rubriek">
+  // Vaste ankers, zodat de hoofdpunten en de inhoudsopgave ergens heen kunnen.
+  const ankerVan = new Map();
+  categorieen.forEach((c, ci) => c.items.forEach((i, ii) => ankerVan.set(i.kop, `b${ci + 1}-${ii + 1}`)));
+
+  const hoofdpuntenBlok = hoofdpunten.length ? `
+    <ul class="hoofdpunten">${hoofdpunten.map(h => `<li>${
+      ankerVan.has(h.bij) ? `<a href="#${ankerVan.get(h.bij)}">${esc(h.tekst)}</a>` : esc(h.tekst)}</li>`).join('')}</ul>` : '';
+
+  const inhoudBlok = categorieen.length > 1 ? `
+    <ul class="inhoud" aria-label="Rubrieken in deze editie">${categorieen.map((c, ci) =>
+      `<li><a href="#r${ci + 1}">${esc(c.emoji || '')} ${esc(c.naam)}<span class="aantal">${c.items.length}</span></a></li>`).join('')}${
+      agenda.length ? '<li><a href="#kalender">📅 Op de kalender</a></li>' : ''}</ul>` : '';
+
+  const rubrieken = categorieen.map((c, ci) => `
+    <section class="rubriek" id="r${ci + 1}">
       <div class="rubriek-kop"><span class="teken">${esc(c.emoji || '')}</span><h2>${esc(c.naam)}</h2></div>
       ${c.items.map(i => `
-      <article class="bericht">
+      <article class="bericht" id="${ankerVan.get(i.kop)}">
         <h3>${esc(i.kop)}</h3>
         <p>${esc(i.tekst)}</p>
         ${plaatje(i.foto)}
-        <p class="herkomst">${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.bron)}</a>` : esc(i.bron)}</p>
+        ${origineel(i.bron, i.link, i.datum)}
       </article>`).join('')}
     </section>`).join('');
 
@@ -154,13 +194,13 @@ function paginaHtml(editie, { isIndex, archief }) {
       <div class="tekst">
         <div class="rubriek-kop"><span class="teken">\u26c5</span><h2>Het weer deze week</h2></div>
         <p>${esc(weer.tekst)}</p>
-        ${weer.bron ? `<p class="herkomst">${weer.link ? `<a href="${esc(weer.link)}" target="_blank" rel="noopener">${esc(weer.bron)}</a>` : esc(weer.bron)}</p>` : ''}
+        ${weer.bron ? origineel(weer.bron, weer.link) : ''}
       </div>
       ${plaatje(weer.foto)}
     </section>` : '';
 
   const agendaBlok = agenda.length ? `
-    <section class="agenda">
+    <section class="agenda" id="kalender">
       <div class="rubriek-kop"><span class="teken">📅</span><h2>Op de kalender</h2></div>
       <ol>${agenda.map(a => `<li><span class="wanneer">${esc(a.datum)}</span><span>${esc(a.wat)}</span></li>`).join('')}</ol>
     </section>` : '';
@@ -174,7 +214,7 @@ function paginaHtml(editie, { isIndex, archief }) {
       <div class="item">
         <div class="tekst">
           <p>${esc(i.tekst)}</p>
-          <p class="herkomst">${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.bron)}</a>` : esc(i.bron)}</p>
+          ${origineel(i.bron, i.link)}
         </div>
         ${plaatje(i.foto)}
       </div>`).join('')}
@@ -207,9 +247,12 @@ function paginaHtml(editie, { isIndex, archief }) {
     <p class="merk">Kefalonia · Wekelijks</p>
     <h1>${esc(titel)}</h1>
     <p class="periode">Het nieuws van ${esc(langeDatum(periode.van))} tot en met ${esc(langeDatum(periode.tot))}</p>
+    ${verbeterd ? `<p class="verbeterd">Verbeterd op ${esc(langeDatum(verbeterd))}: alle berichten zijn opnieuw naast de bronartikelen gelegd.</p>` : ''}
+    ${hoofdpuntenBlok}
     ${intro ? `<p class="intro">${esc(intro)}</p>` : ''}
   </header>
   ${plaatje(openingsfoto, { klasse: 'opening', toonBron: true })}
+  ${inhoudBlok}
   ${weerBlok}
   ${feitjesBlok}
   ${rubrieken}

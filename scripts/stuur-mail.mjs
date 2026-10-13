@@ -57,6 +57,28 @@ const rubrieken = `
     ${c.items.map(i => esc(i.kop)).join('<br>')}
   </p>`).join('')}`;
 
+// Het weer gaat voluit mee: een link is te laat voor het weer.
+const weer = e.weer?.tekst ? `
+  <table width="100%" cellpadding="0" cellspacing="0" style="border-left:3px solid #c2703d;margin:20px 0 6px">
+    <tr><td style="padding:2px 0 2px 16px">
+      <p style="margin:0 0 6px;font:700 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:${ZEE}">&#9925; Het weer deze week</p>
+      <p style="margin:0;font:14px/1.55 Arial,sans-serif;color:${INKT}">${esc(e.weer.tekst)}</p>
+    </td></tr>
+  </table>` : '';
+
+const hoofdpunten = e.hoofdpunten?.length ? `
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin:16px 0 0">
+    ${e.hoofdpunten.map(h => `<tr>
+      <td style="padding:8px 10px 8px 0;border-top:1px solid ${LIJN};font:700 15px Arial,sans-serif;color:#c2703d;vertical-align:top">&rarr;</td>
+      <td style="padding:8px 0;border-top:1px solid ${LIJN};font:700 15px/1.4 Arial,sans-serif;color:${INKT}">${esc(h.tekst)}</td>
+    </tr>`).join('')}
+  </table>` : '';
+
+const verbeterd = e.verbeterd ? `
+  <p style="margin:8px 0 0;padding-left:10px;border-left:3px solid #c2703d;font:13px/1.5 Arial,sans-serif;color:${ZACHT}">
+    Verbeterde versie: alle berichten van deze editie zijn opnieuw naast de bronartikelen gelegd.
+    Deze mail vervangt de eerdere van deze week.</p>` : '';
+
 const feitjes = e.feitjes?.length ? `
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#e8f1f7;border-radius:10px;margin:8px 0 4px">
     <tr><td style="padding:18px 20px">
@@ -91,10 +113,13 @@ const html = `<!doctype html>
       <h1 style="margin:0 0 8px;font:700 26px/1.2 Georgia,serif;color:${INKT}">${esc(e.titel)}</h1>
       <p style="margin:0;font:13px Arial,sans-serif;color:${ZACHT}">
         ${esc(langeDatum(e.periode.van))} tot en met ${esc(langeDatum(e.periode.tot))}</p>
+      ${verbeterd}
+      ${hoofdpunten}
       <p style="margin:16px 0 0;font:italic 16px/1.55 Georgia,serif;color:${ZACHT}">${esc(e.intro)}</p>
     </td></tr>
 
     ${opening ? rij(`<div style="margin:20px 0 4px">${opening}</div>`) : ''}
+    ${rij(weer)}
     ${rij(feitjes)}
     ${rij(`<div style="margin:18px 0 6px">${knop()}</div>`)}
     ${rij(rubrieken)}
@@ -119,7 +144,10 @@ const tekst = [
   `KEFALONIA — WEKELIJKS`,
   e.titel,
   `${langeDatum(e.periode.van)} t/m ${langeDatum(e.periode.tot)}`,
+  ...(e.verbeterd ? ['', 'Verbeterde versie: alle berichten zijn opnieuw naast de bronartikelen gelegd.'] : []),
+  ...(e.hoofdpunten?.length ? ['', ...e.hoofdpunten.map(h => `  > ${h.tekst}`)] : []),
   '', e.intro, '',
+  ...(e.weer?.tekst ? ['HET WEER DEZE WEEK', `  ${e.weer.tekst}`, ''] : []),
   ...(e.feitjes?.length ? ['OPMERKELIJK', ...e.feitjes.map(f => `  - ${f.tekst}`), ''] : []),
   'VERDER DEZE WEEK', '',
   ...e.categorieen.flatMap(c => [c.naam.toUpperCase(), ...c.items.map(i => `  - ${i.kop}`), '']),
@@ -127,7 +155,7 @@ const tekst = [
   `Hele editie online: ${paginaUrl}`,
 ].join('\n');
 
-const onderwerp = `Kefalonia Wekelijks — ${e.titel}`;
+const onderwerp = `Kefalonia Wekelijks — ${e.titel}${e.verbeterd ? ' (verbeterde versie)' : ''}`;
 
 if (proef) {
   writeFileSync(join(WORTEL, 'proef-mail.html'), html);

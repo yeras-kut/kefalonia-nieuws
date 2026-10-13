@@ -124,18 +124,24 @@ resultaten.forEach((r, i) => {
   }
 });
 
-// Dubbele berichten eruit: zelfde titel of zelfde link
-const gezien = new Set();
-const uniek = alles
-  .filter(i => i.titel && i.link)
-  .filter(i => new Date(i.datum) >= SINDS)
-  .filter(i => {
-    const sleutel = i.titel.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '').slice(0, 60);
-    if (gezien.has(sleutel)) return false;
-    gezien.add(sleutel);
-    return true;
-  })
-  .sort((a, b) => new Date(b.datum) - new Date(a.datum));
+// Dubbele berichten eruit: zelfde titel. We onthouden wel bij welke andere
+// bronnen het bericht ook stond, want dat een verhaal bij vijf sites staat is
+// het beste teken dat het ertoe doet. Een rechtstreekse bron wint het van een
+// Google News-omleiding, omdat alleen daar de artikeltekst op te halen is.
+const perTitel = new Map();
+for (const i of alles) {
+  if (!i.titel || !i.link || new Date(i.datum) < SINDS) continue;
+  const sleutel = i.titel.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '').slice(0, 60);
+  const eerder = perTitel.get(sleutel);
+  if (!eerder) { perTitel.set(sleutel, { ...i, ookBij: [] }); continue; }
+  const naam = i.uitgever || i.bron;
+  const wissel = eerder.link.includes('news.google.com') && !i.link.includes('news.google.com');
+  const blijft = wissel ? { ...i, ookBij: [...eerder.ookBij, eerder.uitgever || eerder.bron] } : eerder;
+  if (!wissel && naam !== (eerder.uitgever || eerder.bron)) eerder.ookBij.push(naam);
+  blijft.ookBij = [...new Set(blijft.ookBij)].filter(n => n !== (blijft.uitgever || blijft.bron));
+  perTitel.set(sleutel, blijft);
+}
+const uniek = [...perTitel.values()].sort((a, b) => new Date(b.datum) - new Date(a.datum));
 
 process.stdout.write(JSON.stringify({
   opgehaald: new Date().toISOString(),

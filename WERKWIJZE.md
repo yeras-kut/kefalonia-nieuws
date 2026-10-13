@@ -22,57 +22,68 @@ npm_config_yes=true node scripts/haal-nieuws.mjs 7 > ruwe-oogst.json
 ```
 
 Dit levert een JSON met alle berichten van de afgelopen zeven dagen uit de bronnen
-in `bronnen.json`. Er zit nog Ithakees nieuws in de oogst, omdat veel bronnen
-beide eilanden bedienen; filter dat er bij het schrijven uit volgens de regel
-hierboven. Controleer het logboek dat naar stderr gaat: als meer dan twee
+in `bronnen.json`. Controleer het logboek dat naar stderr gaat: als meer dan twee
 bronnen mislukken, meld dat onderaan de editie in plaats van het stil te laten.
 
-## 2. Filteren
-
-Gebruik `scripts/relevantie.mjs` om het landelijke en internationale nieuws eruit
-te halen dat de lokale sites óók publiceren:
+## 2. Filteren en ordenen
 
 ```sh
-node -e 'import("./scripts/relevantie.mjs").then(async ({filter})=>{
-  const d=JSON.parse(require("fs").readFileSync("ruwe-oogst.json","utf8"));
-  const f=filter(d.berichten);
-  require("fs").writeFileSync("relevant.json",JSON.stringify(f,null,1));
-  f.slice(0,180).forEach((b,i)=>console.log(`${i+1}. [${b.datum.slice(0,10)}|${b.bron}] ${b.titel}`));
-})'
+node scripts/overzicht.mjs ruwe-oogst.json > overzicht.txt
 ```
 
-Lees die lijst helemaal door. Verhalen komen vaak bij vier of vijf bronnen terug —
-dat is juist het signaal dat ze belangrijk zijn. Staat **hetzelfde voorval** bij
-meerdere bronnen, dan wordt dat één bericht. Verschillende voorvallen blijven
-verschillende berichten, ook als ze op elkaar lijken of in dezelfde week vielen;
-zie "Eén bericht, één gebeurtenis" hieronder.
+Dit haalt het landelijke en internationale nieuws eruit dat de lokale sites óók
+publiceren, laat berichten die alleen over Ithaka gaan vallen, en zet berichten
+over hetzelfde onderwerp bij elkaar. Bovenaan staat wat bij de meeste bronnen
+terugkwam: dat een verhaal bij vijf sites staat, is het beste teken dat het
+ertoe doet.
+
+**Lees `overzicht.txt` helemaal, tot de laatste regel.** Het zijn een paar
+honderd koppen. Wat je niet gelezen hebt, kun je ook niet kiezen, en het kleine
+nieuws onderaan levert vaak de beste feitjes op. Het groeperen is grof (op
+gedeelde woorden in de kop): of twee berichten echt over hetzelfde voorval gaan,
+beslis je zelf bij het lezen.
+
+Staat **hetzelfde voorval** bij meerdere bronnen, dan wordt dat één bericht.
+Verschillende voorvallen blijven verschillende berichten, ook als ze op elkaar
+lijken of in dezelfde week vielen; zie "Eén bericht, één gebeurtenis" hieronder.
 
 ## 2b. De artikelen zelf lezen
 
 De oogst geeft per bericht alleen de titel en de eerste vier-, vijfhonderd tekens.
 Dat is genoeg om te kiezen, niet om te schrijven. **Schrijf geen bericht, feitje
 of agendapunt waarvan je het artikel niet helemaal gelezen hebt.** Haal de tekst
-van alles wat je wilt opnemen op:
+van alles wat je wilt opnemen op, met de nummers uit het overzicht:
 
 ```sh
-node scripts/haal-artikel.mjs <link> <link> ... > artikelen.txt
+node scripts/haal-artikel.mjs 3.1 3.2 17.1 44.2 > artikelen.txt
+node scripts/haal-artikel.mjs 51.1 >> artikelen.txt      # later iets erbij
 ```
 
-Dat geeft de volledige Griekse tekst, alinea voor alinea. Gebruik dit script en
-niet WebFetch: WebFetch geeft een samenvatting terug, en dan vertaal je een
-samenvatting in plaats van het artikel. Meldt het script `MISLUKT`, dan komt dat
-bericht niet in de editie, tenzij hetzelfde verhaal bij een andere bron wel
-binnenkomt. Liever vijftien berichten die kloppen dan dertig waarvan de helft
-uit een kopregel is afgeleid.
+Dat geeft de volledige Griekse tekst, alinea voor alinea. Boven elk artikel
+staat een regel `===== <adres>`: **dat adres is de `link` die in de editie
+komt**, letterlijk overgenomen. Bij bronnen die via Google News binnenkomen
+(InKefalonia, Kefalonitika Nea, Portoni) zoekt het script het echte adres van
+het artikel op; een `news.google.com`-link hoort nooit in de editie.
+
+Gebruik dit script en niet WebFetch: WebFetch geeft een samenvatting terug, en
+dan vertaal je een samenvatting in plaats van het artikel. Meldt het script
+`MISLUKT`, dan komt dat bericht niet in de editie, tenzij hetzelfde verhaal bij
+een andere bron wel binnenkomt.
 
 ## 3. De editie schrijven
 
 Schrijf `edities/JJJJ-MM-DD.json` (de datum van die maandag). Zie een bestaande
 editie voor de precieze vorm. Wat er in moet:
 
-- **titel** — geen "Nieuws week 38", maar de week in één zin gevat. Noem twee of
-  drie concrete dingen, in gewone woorden: wat er gebeurde, niet een beeld ervan.
-  "Lekkage in de sporthal van Argostoli", niet "de eerste regen vond elk lek terug". **Begin met iets positiefs of opmerkelijks als dat er is.**
+- **titel** — kort, hooguit 70 tekens: het belangrijkste of opmerkelijkste
+  bericht van de week in gewone woorden. Wat er gebeurde, niet een beeld ervan:
+  "Lekkage in de sporthal van Argostoli", niet "de eerste regen vond elk lek
+  terug". Geen "Nieuws week 38", en geen opsomming: de rest staat in de
+  hoofdpunten.
+- **hoofdpunten** — precies drie, elk één regel, die samen zeggen wat er deze
+  week speelde. Elk hoofdpunt hoort bij een bericht in de editie: zet in `tekst`
+  de regel en in `bij` de letterlijke `kop` van dat bericht, dan wordt het op de
+  pagina een link ernaartoe. De kop zelf overnemen als tekst is prima. **Begin met iets positiefs of opmerkelijks als dat er is.**
   Een titel die opent met een sterfgeval of een ramp zet de hele editie in een
   toon die zelden klopt met wat er die week werkelijk speelde.
 - **intro** — twee tot drie zinnen die de week samenvatten. Informatief, niet
@@ -84,10 +95,16 @@ editie voor de precieze vorm. Wat er in moet:
   bedrukt raken.
 - **categorieen** — alleen de categorieën die deze week echt iets te melden hebben.
   Verzin er geen om een lijstje vol te maken; een week met weinig nieuws mag kort.
+  **Hooguit twintig berichten in totaal.** Kies wat een lezer die het eiland kent
+  wil weten, en laat de rest liggen: de zoveelste persverklaring, condoleances,
+  uitslagen van de vierde klasse. Elk bericht heeft `kop`, `datum`, `tekst`,
+  `bron`, `link` en eventueel `foto`. `datum` is de datum van het artikel
+  (JJJJ-MM-DD), zoals die in `artikelen.txt` bij `DATUM:` staat.
   Gebruikelijke rubrieken: Onderwijs, Zorg en veiligheid, Infrastructuur en verkeer,
   Veerboten, Cultuur en agenda, Aarde en natuur, Bestuur en politiek, Sport.
-- **feitjes** — vijf tot acht opmerkelijke lokale weetjes. Ook hiervoor geldt
-  alles onder "Nauwkeurigheid": één artikel per feitje, en niets erbij bedacht. Dit is het lievelingsstuk
+- **feitjes** — drie tot vijf opmerkelijke lokale weetjes. Ook hiervoor geldt
+  alles onder "Nauwkeurigheid": één artikel per feitje, en niets erbij bedacht.
+  Een feitje herhaalt geen bericht dat al in een rubriek staat. Dit is het lievelingsstuk
   van de lezer, dus besteed er de meeste zorg aan. Goede feitjes zijn concreet,
   verrassend en klein: een raadselachtig krantenbericht uit 1937, het aantal agenten
   op Ithaka, een reddingsteam dat 's nachts uit Athene komt voor één veulen. Geen
@@ -115,7 +132,7 @@ editie voor de precieze vorm. Wat er in moet:
   eventueel `foto`. Staat er geen weerbericht in de oogst, laat het veld dan weg —
   de pagina en de mail slaan het blok dan over. Dit is het enige stuk dat ook in
   de mail zelf komt, want een link is te laat voor het weer.
-- **leukEnOpvallend** — twee tot vier lichte berichten die onderaan de editie
+- **leukEnOpvallend** — twee of drie lichte berichten die onderaan de editie
   staan, mét foto: een eiland dat op de landelijke televisie komt, een duikploeg
   die de haven schoonmaakt, het verhaal achter een kerk waar deze week feest is.
   Verschil met **feitjes**: feitjes zijn eenregelige weetjes zonder foto bovenaan,
@@ -257,15 +274,44 @@ betekenis boven de mooiere. Χαλίκια is grind, geen "stenen". Citaten vert
 volledig en zonder ze aan te scherpen; vat je een uitspraak samen, dan zonder
 aanhalingstekens.
 
-**Controle voor je publiceert.** Loop de editie na het schrijven één keer langs
-met `artikelen.txt` ernaast, bericht voor bericht, en ook de titel, de intro, de
-feitjes en de agenda. Streep per bericht weg: elke zin die je niet in het artikel
-terugvindt, elke zin die uit een ander artikel komt dan de link, en elke zin
-waarin jij iets vindt. Lees het daarna als Nederlands: struikel je over een zin
-of snap je niet hoe hij op de vorige volgt, schrijf hem dan korter en gewoner
-opnieuw. Noem bij elk bericht de bron en een werkende link.
+**Agendapunten** komen ook uit een artikel dat je gelezen hebt. Staat een datum
+of tijd niet in de tekst, dan komt het punt er niet in.
 
-## 4. Site bouwen en publiceren
+Noem bij elk bericht de bron en de directe link. Voor de editie online gaat,
+leest een tweede lezer haar na (stap 4) en wordt ze gekeurd (stap 5).
+
+## 4. Een tweede lezer
+
+Wie een tekst geschreven heeft, leest eroverheen wat hij er zelf in gestopt
+heeft. Laat de editie daarom controleren door een verse agent die jouw
+overwegingen niet kent, voordat ze online gaat.
+
+Start een subagent (Agent- of Task-tool) met als opdracht, en niets meer dan dit:
+
+> Lees `CONTROLE.md` in deze map en voer het uit op `edities/<datum>.json`, met
+> `artikelen.txt` als brontekst.
+
+Geef hem niet mee wat jij van de editie vindt of welke stukken volgens jou
+lastig waren. Hij past de editie zelf aan en meldt wat hij veranderd heeft.
+Neem zijn correcties over zonder ze terug te draaien; ben je het met een
+correctie oneens, dan gaat de betwiste zin eruit. Heb je geen tool om een
+subagent te starten, voer `CONTROLE.md` dan zelf uit, als aparte ronde nadat de
+hele editie geschreven is, en meld in de afsluiting dat er geen tweede lezer was.
+
+## 5. Keuren
+
+```sh
+node scripts/keur-editie.mjs edities/<datum>.json artikelen.txt
+```
+
+Dit controleert wat een machine kan zien: of elk bericht een bron, een datum en
+een directe link heeft, of van elk gelinkt artikel de tekst is opgehaald, of de
+titel kort genoeg is en de hoofdpunten naar een bericht wijzen, en of er geen
+AI-plaatje of Ithaka-rubriek in zit. **Publiceer alleen als dit script zonder
+fouten eindigt.** Regels met een uitroepteken zijn opmerkingen: lees ze en
+beslis. Krijg je een fout niet opgelost, dan gaat het betreffende bericht eruit.
+
+## 6. Site bouwen en publiceren
 
 ```sh
 node scripts/bouw-site.mjs
@@ -274,16 +320,17 @@ git commit -m "Editie <datum>: <titel>"
 git push
 ```
 
-## 5. Mail versturen
+## 7. De mail
 
-De mail gaat via Resend. `instellingen.json` staat niet in de repo; schrijf hem
-eerst met de waarden uit de opdracht. De API-sleutel komt uit de omgevings-
-variabele `RESEND_API_KEY`.
+Daar hoef je niets voor te doen, en je moet er ook niets voor doen. De push van
+een nieuw editiebestand start op GitHub de workflow die de mail verstuurt; de
+wachtwoorden staan daar en niet in deze omgeving. Draai `stuur-mail.mjs` niet
+zelf en schrijf geen `instellingen.json`.
 
-```sh
-node scripts/stuur-mail.mjs --proef   # controleer proef-mail.html
-node scripts/stuur-mail.mjs           # versturen
-```
+De mail gaat alleen uit bij een **nieuw** bestand in `edities/`. Verbeter je
+later iets in een bestaande editie, dan wordt de pagina bijgewerkt maar gaat er
+geen mail uit. Zet in dat geval `"verbeterd": "JJJJ-MM-DD"` in de editie; de
+pagina toont dan dat ze is aangepast.
 
 ## Let op bij het toevoegen van bronnen
 
@@ -301,11 +348,14 @@ in de cloud dichtblijft; die bron is er daarom weer uit gehaald. Het scheelde we
 want zijn berichten stonden vrijwel allemaal ook bij een van de andere bronnen.
 
 Bronnen die alleen via Google News binnenkomen (InKefalonia, Kefalonitika Nea,
-Portoni) leveren een `news.google.com`-omleiding als link in plaats van het artikel
-zelf. Die link werkt voor de lezer, maar zoek eerst of hetzelfde verhaal bij een
-bron staat die je rechtstreeks ophaalt, en link dan daarheen.
+Portoni) leveren een `news.google.com`-omleiding als link. `haal-artikel.mjs`
+zoekt het echte adres op en haalt het artikel daar. Daarvoor moeten ook
+`inkefalonia.gr`, `kefalonianea.gr` en `portoni.gr` op de witte lijst van de
+omgeving staan; geeft het script bij die sites `MISLUKT`, meld dat dan in de
+afsluiting en neem het verhaal van een bron die wel binnenkomt.
 
-## 6. Afsluiten
+## 8. Afsluiten
 
 Meld in één alinea: welke verhalen deze week het belangrijkst waren, hoeveel
-berichten er gescand zijn, of alle bronnen werkten, en of de mail eruit is.
+berichten er gescand zijn, of alle bronnen werkten, wat de tweede lezer
+veranderd heeft, en of de keuring zonder fouten was.

@@ -4,7 +4,22 @@
   "van": "2026-09-28",
   "tot": "2026-10-05"
  },
- "titel": "De restauratie van de oude kloosterkerk van Sissia is klaar, het contract voor de weg naar het klooster Atros is getekend, en bij Kourkoumelata woedde een brand met een 112-bericht voor drie dorpen",
+ "verbeterd": "2026-10-13",
+ "titel": "Restauratie van de kloosterkerk van Sissia is klaar",
+ "hoofdpunten": [
+  {
+   "tekst": "De restauratie van de oude kerk van het klooster Sissia is klaar",
+   "bij": "De restauratie van de oude kerk van het klooster Sissia is klaar"
+  },
+  {
+   "tekst": "Contract getekend voor het verbeteren van de weg naar het klooster Atros",
+   "bij": "Contract getekend voor het verbeteren van de weg naar het klooster Atros"
+  },
+  {
+   "tekst": "Brand tussen Kourkoumelata en Sarlata, met een 112-bericht voor drie dorpen",
+   "bij": "Brand tussen Kourkoumelata en Sarlata, met een 112-bericht voor drie dorpen"
+  }
+ ],
  "intro": "Bij het klooster Sissia is dit weekend gevierd dat de restauratie van de oude kloosterkerk klaar is, en voor de toegangsweg naar het klooster Atros, een plan dat volgens de regio sinds 2011 bleef liggen, is het contract getekend. Zaterdag brandde het bij Anninata en zondagmiddag tussen Kourkoumelata en Sarlata, waar een 112-bericht de mensen in Kourkoumelata, Metaxata en Lakithra opriep te vertrekken; die brand is geblust. Ziekenhuisdirecteur Dimitris Martinis nam ontslag, en de gemeenteraad van Argostoli maakte president Tasoulas ereburger, waarbij een deel van de oppositie zich van stemming onthield.",
  "openingsfoto": {
   "url": "https://kefalonialife.gr/wp-content/uploads/2026/10/moni-sission-anastilosi-2026-768x532.jpg",
@@ -18,6 +33,7 @@
    "items": [
     {
      "kop": "Brand tussen Kourkoumelata en Sarlata, met een 112-bericht voor drie dorpen",
+     "datum": "2026-10-04",
      "tekst": "Op zondagmiddag 4 oktober brak rond 16.00 uur brand uit in het gebied tussen Kourkoumelata en Sarlata. Tijdens het blussen ging er een 112-bericht uit waarin mensen werd gevraagd weg te gaan uit Kourkoumelata, Metaxata en Lakithra. De vrijwillige bosbrandploeg van Kefalonia hielp de brandweer met twaalf vrijwilligers en vier voertuigen. Volgens een latere melding van die ploeg is de brand volledig geblust.",
      "bron": "Kefalonia Press",
      "link": "https://www.kefaloniapress.gr/topika/koinonika/article/902069/kefalonia-ypo-pliri-elegcho-i-fotia-i/",
@@ -29,12 +45,14 @@
     },
     {
      "kop": "Bosbrand bij Anninata op zaterdag 3 oktober",
+     "datum": "2026-10-03",
      "tekst": "In bosgebied bij Anninata brak zaterdag 3 oktober brand uit, meldde de brandweer. Er werden achttien brandweerlieden ingezet, met een ploeg te voet van de 16e EMODE, de speciale bosbrandeenheid van de brandweer, en verder vrijwilligers, vijf voertuigen, twee blusvliegtuigen en een helikopter. Over de omvang van de brand en het verloop van het blussen gaf de brandweer geen verdere informatie.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/pyrkagia-sta-anninata-kefalonias-kinitopoiithikan-epigeies-kai-enaeries-dynameis/"
     },
     {
      "kop": "Ziekenhuisdirecteur Dimitris Martinis neemt ontslag, Zoi Moschona neemt voorlopig waar",
+     "datum": "2026-09-29",
      "tekst": "Dimitris Martinis heeft ontslag genomen als directeur van het Algemeen Ziekenhuis van Kefalonia; dat werd dinsdag 29 september bekend. Volgens eKefalonia werd er druk op hem uitgeoefend om zijn besluit te herzien, maar hield hij eraan vast en heeft de directeur van de 6e gezondheidsregio het ontslag aanvaard. Zoi Moschona, plaatsvervangend directeur van het Mantzavinateio-ziekenhuis in Lixouri, neemt de leiding voorlopig over, meldt de site op basis van eigen informatie; het besluit van minister van Volksgezondheid Adonis Georgiadis daarover moest nog officieel bekend worden gemaakt. De minister wordt volgens eKefalonia binnenkort op Kefalonia en Zakynthos verwacht; ook op Zakynthos is de ziekenhuisdirecteur opgestapt.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/oristiko-i-zoi-moschona-analamvanei-prosorina-ti-dioikisi-tou-nosokomeiou-kefalonias/",
@@ -46,24 +64,28 @@
     },
     {
      "kop": "Panagis Vlachos: het ziekenhuis van Lixouri bestaat in feite niet meer",
+     "datum": "2026-10-01",
      "tekst": "Panagis Vlachos, voorzitter van de gemeenteambtenaren van Kefalonia en Ithaka en oud-secretaris van de PASOK-afdeling in Lixouri, schrijft in een open brief dat hij na het ontslag van ziekenhuisdirecteur Martinis zelfkritiek had verwacht over het Mantzavinateio-ziekenhuis in Lixouri. Die bleef uit, en ook het parlementslid, de regiobestuurder en de burgemeester van Lixouri zwijgen, schrijft hij. Volgens Vlachos bestaat het ooit bloeiende ziekenhuis in feite niet meer, terwijl in Paliki vooral ouderen wonen die een voorziening voor zorg nodig hebben. Zijn brief heeft als titel \"Uur onder nul\".",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/mantzavinateio-nosokomeio-liksouriou-ora-kato-tou-midenos/"
     },
     {
      "kop": "Zaak-Myrto: justitie onderzoekt of er een anesthesist en een cardioloog in het ziekenhuis waren",
+     "datum": "2026-10-01",
      "tekst": "Justitie onderzoekt wat er in het ziekenhuis van Kefalonia gebeurde toen de negentienjarige Myrto daar na middernacht op tweede paasdag bewusteloos werd binnengebracht, schrijft Kefalonia Focus op basis van de nieuwssite Newsbomb. Het onderzoek gaat over verklaringen van zorgpersoneel over de reanimatiepoging op de spoedeisende hulp die elkaar tegenspreken; justitie wil vaststellen of er op dat moment een anesthesist en een cardioloog in het ziekenhuis waren. De personeelsvereniging van het ziekenhuis, de vakbond POEDIN en de minister van Volksgezondheid hadden eerder gezegd dat de artsen op hun post waren. Volgens Newsbomb zijn er nu aanwijzingen dat die twee specialisten niet in het gebouw waren; de site schrijft erbij dat dit 's nachts in provincieziekenhuizen niet ongewoon is, omdat dienstdoende artsen dan oproepbaar zijn. Ook de moeder van Myrto, die in het ziekenhuis werkte, had gezegd dat de artsen er voor zover zij wist waren; het onderzoek moet uitwijzen of zij verkeerd is voorgelicht.",
      "bron": "Kefalonia Focus",
      "link": "https://kefaloniafocus.com/society/2026/10/65501/"
     },
     {
      "kop": "Schenking van 18.900 euro voor het bereiden van chemotherapie in het ziekenhuis",
+     "datum": "2026-09-30",
      "tekst": "Penelopi Kamilou heeft het Algemeen Ziekenhuis van Kefalonia een veiligheidskast geschonken voor het oplossen en mengen van celremmende medicijnen, waarmee chemotherapie wordt bereid. De schenking bedraagt 18.900 euro, met btw 23.436 euro. Volgens Kefalonia Focus kunnen de medicijnen daarmee veiliger worden bereid.",
      "bron": "Kefalonia Focus",
      "link": "https://kefaloniafocus.com/society/2026/09/65450/"
     },
     {
      "kop": "Toerist van 70 overleden op het strand van Lourdas",
+     "datum": "2026-10-02",
      "tekst": "Op vrijdag 2 oktober is een toerist van 70 jaar overleden op het strand van Lourdas, nadat hij de zee in was gegaan. Er stonden die dag golven. Bewoners en ondernemers uit de buurt schoten te hulp en haalden een defibrillator uit een hotel in de omgeving; daarna zetten hulpverleners de reanimatie voort. Of de man is verdronken of in het water onwel werd, is nog niet vastgesteld.",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/koinonia/tragodia-lourdas-nekros-70xronos-touristas-paralia/"
@@ -76,6 +98,7 @@
    "items": [
     {
      "kop": "Gemeenteraad van Argostoli maakt president Tasoulas ereburger, deel van de oppositie onthoudt zich",
+     "datum": "2026-10-01",
      "tekst": "De gemeenteraad van Argostoli heeft op woensdag 30 september ingestemd met het voorstel van het gemeentebestuur om president Konstantinos Tasoulas tot ereburger te benoemen. Iedereen stemde voor, behalve de fractie van Alexandros Panteleios, die zich van stemming onthield; ook raadslid Dimitris Kekatos zei het voorstel niet te steunen en vroeg zich te mogen onthouden. Burgemeester Theofilos Michalatos zei dat het idee is ontstaan door het bezoek van de president aan Kefalonia voor het feest van de Agios Gerasimos. Raadsleden van de oppositie vroegen wat Tasoulas voor het eiland heeft gedaan. Panteleios: \"Als iemand naar onze gemeente komt, wordt hij dan automatisch ereburger?\" Ze klaagden ook dat ze het voorstel niet vóór de vergadering hadden gekregen.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/kefalonia/argostoli/2026/antidraseis-sto-dimotiko-symvoylio-anakiryksi-epitimou-dimoti-tasoula/",
@@ -87,6 +110,7 @@
     },
     {
      "kop": "Argostoli wil een in 1998 geschonken pand terug, gehandicaptenvereniging Yperion is tegen",
+     "datum": "2026-10-01",
      "tekst": "De gemeenteraad van Argostoli besloot op woensdag 30 september de schenking te herroepen waarmee de gemeente in 1998 een pand aan het ministerie van Volksgezondheid gaf. Volgens burgemeester Theofilos Michalatos was het pand bedoeld voor mensen met een beperking en wijkt het huidige gebruik daarvan af. De gehandicaptenvereniging Yperion uit Lixouri, die in het gebouw drie lokalen vraagt voor een dagcentrum voor kinderen met een beperking, was in de raadszaal en sprak zich tegen het voorstel uit. De oppositie waarschuwde voor vertraging, onduidelijkheid over het eigendom en nieuwe kosten voor de gemeente; in het pand zitten volgens haar nu onder meer de speciale basisschool en kleuterschool, het revalidatiecentrum KEFIAP en de ambulancepost. Het voorstel werd aangenomen met de stemmen van de fractie van de burgemeester. Kefalonia Life tekent erbij aan dat het pand daarmee nog niet terug is bij de gemeente en dat Yperion de lokalen nog niet heeft.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/kefalonia/argostoli/2026/anaklisi-doreas-akinitoy-sto-argostoli-yperion-apenanti/",
@@ -98,24 +122,28 @@
     },
     {
      "kop": "Regioraad vergadert maandag over de proefboring Asopos-1 in de Ionische Zee",
+     "datum": "2026-10-03",
      "tekst": "De regioraad van de Ionische Eilanden is voor maandag 5 oktober om 10.00 uur in buitengewone zitting bijeengeroepen, op Corfu en via een videoverbinding. Er staat één punt op de agenda: het advies van de raad over de studie naar de gevolgen voor milieu en samenleving van de proefboring \"Asopos-1\" in blok 2 van de Ionische Zee. De inspraakronde over die studie is afgelopen. Stavros Antypas schreef in de aanloop naar de vergadering in een bericht op internet dat \"de Ionische Zee geen bouwkavel is om te exploiteren\"; volgens hem is het standpunt van de plaatselijke gemeenschappen over het zoeken en winnen van olie en gas duidelijk en niet onderhandelbaar.",
      "bron": "Kefalonia Focus",
      "link": "https://kefaloniafocus.com/society/2026/10/65571/"
     },
     {
      "kop": "Fractie in de Kamer van Koophandel: voorzitter schreef over steengroeven zonder het bestuur",
+     "datum": "2026-09-28",
      "tekst": "De voorzitter van de Kamer van Koophandel van Kefalonia en Ithaka schreef de regiobestuurder een brief over het aanwijzen van gebieden voor steengroeven op Kefalonia en Ithaka. Volgens de kamerfractie Epicheiroume Mazi en haar leider Anastasios Kalogiratos is die brief als standpunt van de Kamer verstuurd zonder dat het bestuur erover had gesproken of besloten. \"De voorzitter heeft geen blanco cheque om alleen te beslissen\", schrijft de fractie.",
      "bron": "Kefalonia Focus",
      "link": "https://kefaloniafocus.com/economy/2026/09/65366/"
     },
     {
      "kop": "Centrum voor Odyssee-studies noemt de naam \"The Odyssey Islands\" onjuist",
+     "datum": "2026-10-05",
      "tekst": "Het Centrum voor Odyssee-studies noemt de toeristische naam \"The Odyssey Islands – De eilanden van de Odyssee\" voor de Ionische Eilanden in een verklaring een ongelukkige vondst. Het idee komt van de regio Ionische Eilanden: eerst was sprake van \"de eilanden van Odysseus\", en na bezwaar van de gemeente Ithaka maakte regiobestuurder G. Trepeklis er \"de eilanden van de Odyssee\" van. Volgens het centrum klopt het eerste niet, omdat Odysseus in het epos van alle Ionische eilanden alleen over zijn band met Ithaka spreekt. Het tweede klopt volgens het centrum evenmin: de Odyssee noemt maar vier van de Ionische eilanden en daarnaast veel andere eilanden, zoals dat van de cycloop Polyfemos, dat van de Sirenen, van Kirke en van Kalypso. Het centrum vraagt zich af of de overheid niet beter de opgravingen op Ithaka kan steunen.",
      "bron": "Kefalonia Focus",
      "link": "https://kefaloniafocus.com/ithaki/2026/10/65690/"
     },
     {
      "kop": "Vakbondskoepel protesteert donderdag in Argostoli tegen het bezoek van Rubio aan Griekenland",
+     "datum": "2026-10-04",
      "tekst": "Het Werknemerscentrum van Kefalonia en Ithaka, de plaatselijke vakbondskoepel, houdt op donderdag 8 oktober om zeven uur 's avonds een protest met borden op het Kampana-plein in Argostoli, tegen het bezoek van de Amerikaanse minister van Buitenlandse Zaken Marco Rubio aan Griekenland. Het Vredescomité van Kefalonia en Ithaka doet mee.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/kefalonia/argostoli/2026/ergatiko-kentro-kefalonias-ithakis-piketoforia-kata-episkepsis-roumpio-sto-argostoli/"
@@ -128,6 +156,7 @@
    "items": [
     {
      "kop": "Contract getekend voor het verbeteren van de weg naar het klooster Atros",
+     "datum": "2026-10-02",
      "tekst": "Op 29 september is het contract getekend tussen de regio Ionische Eilanden en het ministerie van Milieu en Energie voor het verbeteren van de toegangsweg naar het klooster Atros. De kosten zijn geraamd op 260.000 euro, die de regio volledig uit eigen middelen betaalt; de regio neemt ook de studies en de uitvoering op zich. Volgens de regio bleef het plan sinds 2011 liggen. Het gaat om het deel van de weg dat als bosweg is aangemerkt, en vooral de bochten worden verbeterd. Wanneer het werk begint en klaar is, staat niet in de mededeling van de regio.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/fos-sto-tounel-gia-ton-dromo-pros-ti-moni-atrou-prochora-to-ergo-ton-260-000-evro-meta-apo-15-chronia/",
@@ -139,12 +168,14 @@
     },
     {
      "kop": "Nieuwe stroomkabels naar Zakynthos en Lefkada in bedrijf",
+     "datum": "2026-09-30",
      "tekst": "De landelijke netbeheerder ADMIE heeft de vernieuwde hoogspanningsverbindingen Zakynthos-Kefalonia en Kefalonia-Lefkada in bedrijf gesteld. De nieuwe kabels, van 20,4 en 14,8 kilometer, vervangen de oude verbindingen die tientallen jaren in gebruik waren. Volgens ADMIE wordt de stroomvoorziening van Zakynthos, Kefalonia, Ithaka en Lefkada er betrouwbaarder door. Aan een derde verbinding tussen Corfu en het vasteland, via Igoumenitsa, wordt nog gebouwd; die moet in 2027 klaar zijn.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/se-leitourgia-oi-anavathmismenes-ilektrikes-diasyndeseis-zakynthou-kefalonias-lefkadas/"
     },
     {
      "kop": "Het Zeemanshuis van Argostoli is weer open",
+     "datum": "2026-10-03",
      "tekst": "Het kantoor in Argostoli van het Zeemanshuis (Oikos Naftou), de instelling waar werkende en gepensioneerde zeelieden terechtkunnen, is weer bemand: sinds 21 september werkt er een medewerker die via een programma van de arbeidsdienst DYPA is geplaatst. Er is ook schriftelijk toegezegd dat er een vaste medewerker komt. De personeelsvereniging van de kustwacht van Kefalonia en Ithaka noemt het het eerste resultaat van haar gezamenlijke actie met de zeeliedenvereniging Nikos Kavvadias, en wacht nu op die vaste aanstelling.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/kefalonia/argostoli/2026/oikos-naytoy-sto-argostoli-i-koini-diekdikisi-epanaleitourgia/",
@@ -156,18 +187,21 @@
     },
     {
      "kop": "Stroomonderbrekingen van 3 tot en met 5 oktober wegens onderhoud",
+     "datum": "2026-10-03",
      "tekst": "Netbeheerder DEDDIE kondigde voor zaterdag 3 tot en met maandag 5 oktober stroomonderbrekingen aan wegens onderhoud en versterking van het net. Zaterdag van 8.00 tot 15.00 uur in Karavomylos, Agia Paraskevi en de omgeving van de camping. Zondag in Lixouri: van 8.00 tot 8.30 uur in het deel ten zuiden van het centrale plein en van 8.30 tot 14.00 uur in een ander deel van de stad. Maandag van 8.00 tot 14.00 uur in heel Fragkata.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/kefalonia/2026/diakopi-reymatos-to-savvato-3-10-tin-kyriaki-deutera-5-10/"
     },
     {
      "kop": "Argostoli tekent de komende dagen het contract voor een opvang voor zwerfdieren",
+     "datum": "2026-10-04",
      "tekst": "De gemeente Argostoli tekent de komende dagen het contract voor een opvang voor zwerfdieren. Wethouder Dionysis Konstantatos maakte dat bekend in een boodschap bij Werelddierendag, 4 oktober. De opvang krijgt volgens hem ruimtes voor verblijf en verzorging. Hij schrijft erbij dat een opvang alleen het probleem niet oplost: het gaat ook om het voorkomen dat dieren worden achtergelaten, om sterilisatie, adoptie en verantwoordelijke eigenaren.",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/politiki/argostoli-ypografi-symvasis-katafygio-adespoton-zoon-konstantatos/"
     },
     {
      "kop": "Ingenieurskamer vraagt de burgemeester om een gesprek over de dienst bouwtoezicht van Argostoli",
+     "datum": "2026-09-30",
      "tekst": "De afdeling Kefalonia en Ithaka van de TEE, de Griekse kamer van ingenieurs, vraagt de burgemeester van Argostoli om een gesprek op korte termijn over de dienst bouwtoezicht van de gemeente. Het hoofd van die dienst stelt in een brief dat percelen die alleen bij afwijking van de regels bebouwd mogen worden, sinds de nieuwe bouwwet van 2026 niet meer bebouwd mogen worden. Volgens de TEE is dat weersproken in een gesprek van de burgemeester met de verantwoordelijke staatssecretaris, zoals parlementslid P. Kappatos bekendmaakte. De ingenieurs schrijven dat de dienst de besluiten voor zulke percelen zeer traag afgeeft, terwijl er minder dan acht maanden resten tot de termijn voor bouwvergunningen op deze percelen afloopt.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/ydom-argostoliou-episimi-paremvasi-tee-gia-tis-parekkliseis/"
@@ -180,6 +214,7 @@
    "items": [
     {
      "kop": "Veerschip \"Kefalonia\" verloor bij Poros zijn rechteranker",
+     "datum": "2026-10-02",
      "tekst": "Het veerschip \"Kefalonia\" vertrok op donderdag 1 oktober rond het middaguur met vertraging uit Poros naar Kyllini, omdat het zijn rechteranker niet omhoog kreeg en het anker verloor. Aan boord waren 433 passagiers, 125 personenauto's, 18 vrachtwagens, 7 bussen, 4 motoren en een ambulance. Het schip voer daarna door naar Kyllini. Volgens eKefalonia kwamen de reizigers om tien uur 's avonds in Athene aan.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/peripeteia-sto-kefalonia-apoleia-agkyras-prokalese-kathysterisi-stis-2200-eftasan-stin-athina-oi-taksidiotes/",
@@ -191,12 +226,14 @@
     },
     {
      "kop": "Veerschip \"Kefalonia\" mocht na een motorstoring niet uit Kyllini vertrekken",
+     "datum": "2026-09-30",
      "tekst": "De kapitein van het veerschip \"Kefalonia\" meldde zondagavond 27 september een storing aan de linker hoofdmotor, terwijl het schip in de haven van Kyllini lag. Het zou naar Zakynthos varen met 290 passagiers; de rederij heeft hen op een andere manier naar hun bestemming gebracht. De havenautoriteit van Kyllini verbood het schip uit te varen totdat het classificatiebureau heeft bevestigd dat de storing is verholpen. Er raakte niemand gewond, meldt de kustwacht.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/ksemeine-sto-limani-tis-kyllinis-to-ploio-kefalonia/"
     },
     {
      "kop": "Scheepsliefhebbers stellen voor de winter twee afvaarten per dag tussen Sami en Patras voor",
+     "datum": "2026-09-29",
      "tekst": "De scheepsliefhebbersclub Kefalonites Karavolatres stelt voor om de aanloop van de Superfast in Sami niet alleen als halte op de internationale lijn te zien, maar te combineren met de Levante. Kefalonia en Ithaka zouden dan in de winter een ochtend- én een middagverbinding met Patras hebben, twee afvaarten per dag.",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/apopsi/sami-superfast-levante-patra-xeimerina-dromologia-protasi/"
@@ -209,18 +246,21 @@
    "items": [
     {
      "kop": "TUI sluit het seizoen af met 386 aankomsten, in 2027 dezelfde periode",
+     "datum": "2026-10-04",
      "tekst": "Op zondag 4 oktober eindigde het vliegprogramma van TUI Airways tussen het Verenigd Koninkrijk en Kefalonia, met de laatste retourvluchten vanaf het eiland. Het programma begon op 3 mei en telde dit jaar 386 aankomsten vanaf negen Britse vliegvelden; Manchester had er de meeste, 72. Volgens de gegevens die er nu zijn loopt het programma in 2027 van 2 mei tot 3 oktober. Kefalonia Press stelt vast dat het seizoen daarmee niet langer wordt.",
      "bron": "Kefalonia Press",
      "link": "https://www.kefaloniapress.gr/topika/oikonomia/article/902005/kefalonia-aylaia-simera-gia-tin-tui-386/"
     },
     {
      "kop": "AnimaWings staakt alle vluchten tot en met 24 oktober",
+     "datum": "2026-10-03",
      "tekst": "De Roemeense luchtvaartmaatschappij AnimaWings heeft al haar vluchten opgeschort tot en met 24 oktober. De maatschappij kampt volgens Kefalonia Press met grote operationele en financiële problemen en heeft een gerechtelijke reorganisatie in gang gezet. Voor Kefalonia vervallen er geen vluchten: de lijn vanuit Timisoara was op 17 september al afgelopen en die vanuit Boekarest op 27 september. AnimaWings wil op 25 oktober weer gaan vliegen, met een aangepast schema.",
      "bron": "Kefalonia Press",
      "link": "https://www.kefaloniapress.gr/topika/oikonomia/article/901903/animawings-anastellei-oles-tis-ptiseis-eos-tis-24/"
     },
     {
      "kop": "Drie cruiseschepen met samen 6.986 passagiers in Argostoli",
+     "datum": "2026-10-01",
      "tekst": "Op donderdag 1 oktober lagen er drie grote cruiseschepen in Argostoli: de MSC Sinfonia, de Marella Voyager en de Explorer of the Seas. Samen hadden ze ongeveer 6.986 passagiers aan boord, de bemanning niet meegeteld. De MSC Sinfonia kwam volgens het schema van het havenfonds om 8.00 uur aan, de andere twee om 12.00 uur.",
      "bron": "Kefalonia Focus",
      "link": "https://kefaloniafocus.com/tourism/2026/10/65487/",
@@ -232,12 +272,14 @@
     },
     {
      "kop": "Gerasimos Timotheatos herkozen in het bestuur van de landelijke hotelfederatie",
+     "datum": "2026-10-03",
      "tekst": "Gerasimos Timotheatos, voorzitter van de hotelvereniging van Kefalonia en Ithaka, is herkozen in het twaalfkoppige bestuur van de landelijke hotelfederatie POX. Hij kreeg 128 van de 190 stemmen en eindigde daarmee als vijfde van de zeventien kandidaten. Het nieuwe bestuur moet de functies, waaronder die van voorzitter, nog onderling verdelen.",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/politiki/gerasimos-timotheatos-pox-ekloges-128-psifoi-kefalonia/"
     },
     {
      "kop": "Winkeliersvereniging van Argostoli pleit in het parlement voor een onderzoek naar opkoopfondsen",
+     "datum": "2026-10-04",
      "tekst": "Een delegatie van Krani, de winkeliersvereniging van Argostoli, heeft samen met andere organisaties in het parlementsgebouw in Athene gesproken met vertegenwoordigers van politieke partijen. Ze pleiten voor een parlementaire enquêtecommissie die onderzoekt binnen welke regels de fondsen die leningen opkopen, en de bedrijven die deze leningen innen, in Griekenland werken. Volgens Krani reageerden oppositiepartijen positief; het standpunt van de PASOK-fractie is nog niet duidelijk. Op 12 oktober geven de organisaties een gezamenlijke persconferentie en voor 24 oktober staat een actie bij het ministerie van Financiën gepland.",
      "bron": "Kefalonia Press",
      "link": "https://www.kefaloniapress.gr/topika/oikonomia/article/901977/i-krani-sti-voyli-zita-exetastiki-gia-funds/"
@@ -250,12 +292,14 @@
    "items": [
     {
      "kop": "De restauratie van de oude kerk van het klooster Sissia is klaar",
+     "datum": "2026-10-04",
      "tekst": "De restauratie van het oude katholikon, de hoofdkerk, van het klooster Sissia is afgerond. Dat werd op zaterdag 3 oktober gevierd met een plechtige vesper in het klooster, gevolgd door een rondgang rond de herstelde kerk. De bijeenkomsten waren georganiseerd door de stichting van Georgios en Maris Vergotis, die onderzoekers en leden ontving van de ELLET, de Griekse vereniging voor milieu en cultuur. De sponsors werden geëerd. Namens de gemeente Argostoli waren de wethouders Krystallia Michalatou en Dionysis Konstantatos aanwezig.",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/koinonia/iera-moni-sission-oloklirothike-anastilosi-palaiou-katholikou/"
     },
     {
      "kop": "ELLET presenteerde in Kourkoumelata de restauratiestudies voor Sissia en de Agioi Fanentes",
+     "datum": "2026-10-04",
      "tekst": "Op vrijdag 2 oktober presenteerde de ELLET, de Griekse vereniging voor milieu en cultuur, in het cultureel centrum van Kourkoumelata haar werk aan monumenten op Kefalonia. Gastheer was de stichting van Georgios en Maris Vergotis. Het ging vooral om het oude katholikon van het klooster Sissia, een eenbeukige basiliek met houten dak waarvan de geschiedenis teruggaat tot de dertiende eeuw en waarvan belangrijke delen uit 1725-1726 stammen, en om het klooster van de Agioi Fanentes, met een katholikon uit 1633 dat bij de aardbevingen van 1953 vrijwel geheel werd verwoest. Athanasios en Marina Martinou, die de studies voor de restauratie betaalden, werden door de stichting geëerd. Konstantinos Koutsadelis van de ELLET noemde ook gebouwen waarvoor de voorbereiding nog niet tot herstel heeft geleid, waaronder het huis Vallianos in Keramies.",
      "bron": "Kefalonia Press",
      "link": "https://www.kefaloniapress.gr/topika/arthro/article/901909/kefalonia-tria-mnimeia-xanampainoyn-ston-charti-tis-diasosis/",
@@ -267,6 +311,7 @@
     },
     {
      "kop": "De icoon van de Panagia Drapaniotissa is terug in de kerk van Drapano",
+     "datum": "2026-10-05",
      "tekst": "De icoon van de Panagia Drapaniotissa, de beschermheilige van Argostoli, is zondagavond 4 oktober in processie teruggebracht naar de kerk van Drapano. Ze had tien dagen in de kerk van de Agios Spyridon aan het Lithostroto gestaan. De processie ging opnieuw over de De Bosset-brug, met muziek van de harmonie Dionysios Lavrangas en in aanwezigheid van een flink aantal gelovigen.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/i-panagia-i-drapaniotissa-epestrepse-ston-throno-tis-eikones-vinteo/",
@@ -278,12 +323,14 @@
     },
     {
      "kop": "Maria Bill zong Edith Piaf in het Kefalos-theater",
+     "datum": "2026-10-04",
      "tekst": "De zangeres Maria Bill trad deze week op in het gemeentetheater Kefalos in Argostoli met een programma rond Edith Piaf. Vangelis Evangelatos, die erbij was, schrijft dat het volgens Bill zelf haar eerste voorstelling in Griekenland was. Hij merkt ook op dat de presentator vooraf meedeelde dat fotograferen en filmen verboden was, en geeft toe dat hij toch een foto maakte, als \"klein aandenken aan de avond\".",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/apopsi/maria-bill-edith-piaf-kefalos-argostoli-evangelatos/"
     },
     {
      "kop": "Servisch dansgezelschap Abrasevic trad op in het Kefalos-theater",
+     "datum": "2026-10-01",
      "tekst": "Op woensdagavond 30 september stonden het Servische dansgezelschap Abrasevic en de dansgroep van de culturele vereniging Pronisos uit Poros samen in het gemeentetheater Kefalos in Argostoli, met dansen en muziek uit beide landen. De avond was georganiseerd door de gemeente Argostoli en het Servische consulaat op Kefalonia. Ereconsul Viktoras Rouchotas en burgemeester Theofilos Michalatos gaven de vertegenwoordigers van het Servische gezelschap na afloop een aandenken.",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/lifestyle/argostoli-servia-kefalos-xoreftiko-amprasevits-pronisos/",
@@ -295,6 +342,7 @@
     },
     {
      "kop": "Vrouwenkoor van Argostoli zingt op het korenfestival van Agrinio",
+     "datum": "2026-10-02",
      "tekst": "Het vrouwenkoor van de vereniging Koor en Mandolinata van Argostoli is vrijdag 2 oktober vertrokken naar Agrinio, waar het zaterdag 3 oktober meedoet aan het korenfestival. Het koor staat onder leiding van dirigent Alexia Martselou en vertegenwoordigt daar Kefalonia.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/563152-2/"
@@ -307,6 +355,7 @@
    "items": [
     {
      "kop": "Dertig moerbeibomen geplant in de Momferatoustraat in Argostoli",
+     "datum": "2026-09-29",
      "tekst": "De gemeente Argostoli heeft op dinsdag 29 september ongeveer dertig jonge moerbeibomen geplant aan beide kanten van de Momferatoustraat. Het doel is meer groen en, vooral in de zomer, meer schaduw. Voor de moerbei is gekozen omdat de boom zich goed aanpast aan de stad, sterk is en veel schaduw geeft als hij is uitgegroeid.",
      "bron": "Kefalonia Magazine",
      "link": "https://kefaloniamagazine.gr/politiki/argostoli-30-nees-mouries-odos-momferatou-dentrofytefsi/",
@@ -318,6 +367,7 @@
     },
     {
      "kop": "Tweede ronde muggenbestrijding van 5 tot en met 16 oktober",
+     "datum": "2026-10-01",
      "tekst": "Van maandag 5 tot vrijdag 16 oktober loopt de tweede bestrijdingsronde tegen muggen op Kefalonia en Ithaka. Het programma per gebied staat bij de regio; bewoners kunnen plekken waar muggen zich voortplanten zelf doorgeven.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/kefalonia-kai-ithaki-apo-5-eos-16-oktovriou-o-defteros-kyklos-katapolemisis-kounoupion/"
@@ -330,12 +380,14 @@
    "items": [
     {
      "kop": "Ouders van de tweede kleuterschool van Argostoli spreken een bericht over de school tegen",
+     "datum": "2026-10-03",
      "tekst": "Het bestuur van de oudervereniging van de tweede kleuterschool van Argostoli reageert op een bericht van een lokaal medium over de problemen van de school. Volgens het bestuur bevat dat bericht onjuistheden en geeft het niet weer wat de algemene ledenvergadering van de ouders heeft besloten. De manier waarop de zaak is gebracht wekt volgens het bestuur een verkeerde indruk, doet de leerkrachten tekort en gaat voorbij aan de aanpak die de ouders samen hadden afgesproken.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/2o-nipiagogeio-argostoliou-oi-goneis-apantoun-se-dimosievma-anakriveies-kai-esfalmenes-entyposeis/"
     },
     {
      "kop": "Overkoepelende oudervereniging opgericht in de gemeente Argostoli",
+     "datum": "2026-09-29",
      "tekst": "In de gemeente Argostoli is een unie van ouderverenigingen opgericht, op initiatief van ouders van verschillende scholen; er is een voorlopig bestuur. De unie wil gezamenlijk opkomen voor problemen die op alle scholen spelen, zoals het gebrek aan schoolgebouwen, uitgevallen lesuren en het samenvoegen van klassen en scholen. Ouderverenigingen die nu bestuursverkiezingen houden, wordt gevraagd daarbij ook afgevaardigden voor de unie te kiezen, zodat er de komende maanden een ledenvergadering met verkiezingen kan komen.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/systathike-i-enosi-goneon-dimou-argostoliou-sto-epikentro-ta-koina-provlimata-ton-scholeion/"
@@ -348,6 +400,7 @@
    "items": [
     {
      "kop": "Pallixouriakos verliest thuis met 1-2 van PAS Preveza",
+     "datum": "2026-10-04",
      "tekst": "Pallixouriakos heeft zondag 4 oktober zijn eerste thuiswedstrijd van dit seizoen in de derde divisie met 1-2 verloren van PAS Preveza, in het gemeentelijk sportcentrum van Argostoli. Sebastian Chrousiel kopte de ploeg uit Lixouri in de negentiende minuut op voorsprong, op aangeven van Roussis; Preveza maakte in de 41e minuut gelijk en scoorde in de 72e minuut de winnende treffer. Zondag 11 oktober speelt Pallixouriakos uit in Patras tegen Panachaiki.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/sports/2026/pallixoyriakos-itta-me-1-2-apo-ton-pas-preveza/",
@@ -359,6 +412,7 @@
     },
     {
      "kop": "Winnende start voor de basketballers van Lixouri",
+     "datum": "2026-10-04",
      "tekst": "De basketballers van NEOL Lixouri begonnen de National League 2 met een overwinning: 74-70 tegen Platon, zondag 4 oktober in de sporthal van Lixouri.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/sports/2026/nikifora-premiera-gia-ton-neol-sto-lixouri/",
@@ -370,12 +424,14 @@
     },
     {
      "kop": "AEK Kefalonia gaat zaalvoetballen, met drie ploegen",
+     "datum": "2026-10-01",
      "tekst": "AEK Kefalonia doet dit seizoen voor het eerst mee aan het landelijke zaalvoetbalkampioenschap, en wel met drie ploegen: een herenteam in de tweede divisie en twee jeugdteams.",
      "bron": "eKefalonia",
      "link": "https://ekefalonia.gr/istoriko-vima-gia-tin-aek-kefalonias-sti-v-ethniki-tou-podosfairou-salas/"
     },
     {
      "kop": "De uitslagen van de zesde Ainos Mountain Marathon",
+     "datum": "2026-10-02",
      "tekst": "De organisatie van de zesde Ainos Mountain Marathon, die vanuit Pyrgi werd gelopen, heeft de uitslagen bekendgemaakt. Aan de wedstrijd over 34 kilometer deden 45 lopers mee, en ze haalden allemaal de finish. Winnaar was de Roemeen Alexandru Focsa in 3.35.01; hij was voor de wedstrijd over de weg uit Brasov gekomen. Bij de vrouwen won de Engelse Poppy Oliver in 5.10.28. Op de 12 kilometer won Lefteris Tzortzatos in 1.16.43 en was Eirini Markatos met 1.16.48 de snelste vrouw.",
      "bron": "Kefalonia Life",
      "link": "https://kefalonialife.gr/sports/2026/6os-ainos-mountain-marathon-oi-nikites-kai-ta-telika-apotel/"

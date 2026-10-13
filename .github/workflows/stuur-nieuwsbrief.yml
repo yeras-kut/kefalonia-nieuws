@@ -1,7 +1,12 @@
 name: Nieuwsbrief versturen
 
-# Draait zodra er een nieuwe editie gepubliceerd wordt. De wekelijkse agent doet
-# dat elke maandagochtend; publiceren en versturen zijn zo één handeling.
+# Draait zodra er iets in edities/ verandert, maar verstuurt alleen als er een
+# NIEUW editiebestand bij is gekomen. De wekelijkse agent doet dat elke
+# maandagochtend; publiceren en versturen zijn zo één handeling. Een verbetering
+# in een bestaande editie bouwt alleen de proef: anders zou elke herstelde
+# typfout de mail opnieuw naar alle ontvangers sturen.
+# Opnieuw versturen kan wel, maar alleen met de hand: Actions > Nieuwsbrief
+# versturen > Run workflow, en dan "alleen_proef" uitzetten.
 # Mislukt de agent, dan verschijnt er geen editie en gaat er dus ook geen mail uit.
 on:
   push:
@@ -19,6 +24,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Is er een nieuwe editie bijgekomen?
+        id: nieuw
+        if: github.event_name == 'push'
+        env:
+          VOOR: ${{ github.event.before }}
+          NA: ${{ github.sha }}
+        run: |
+          bij=$(git diff --name-only --diff-filter=A "$VOOR" "$NA" -- 'edities/*.json' || true)
+          if [ -n "$bij" ]; then
+            echo "Nieuwe editie: $bij"
+            echo "nieuw=ja" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Geen nieuw editiebestand in deze push, dus er gaat geen mail uit."
+            echo "nieuw=nee" >> "$GITHUB_OUTPUT"
+          fi
 
       - uses: actions/setup-node@v4
         with:
@@ -46,7 +69,7 @@ jobs:
       # MAIL_ACTIEF op 'ja' staat. Tot die tijd bouwt de workflow alleen de
       # proef, zodat je de opmaak kunt bekijken zonder dat iemand post krijgt.
       - name: Versturen
-        if: vars.MAIL_ACTIEF == 'ja' && (github.event_name == 'push' || inputs.alleen_proef == false)
+        if: vars.MAIL_ACTIEF == 'ja' && (steps.nieuw.outputs.nieuw == 'ja' || (github.event_name == 'workflow_dispatch' && inputs.alleen_proef == false))
         env:
           # Met een Gmail-app-wachtwoord gaat de mail via Gmail; zonder via Resend.
           GMAIL_GEBRUIKER: ${{ secrets.GMAIL_GEBRUIKER }}

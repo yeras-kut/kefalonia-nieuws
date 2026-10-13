@@ -8,15 +8,23 @@ als webpagina en als mail.
 1. `scripts/haal-nieuws.mjs` haalt het nieuws van de afgelopen zeven dagen op bij
    alle bronnen in `bronnen.json` — via de WordPress-API van de lokale sites en
    via Google News voor de bronnen die achter Cloudflare zitten.
-2. `scripts/relevantie.mjs` filtert het landelijke en internationale nieuws eruit
-   dat die sites óók publiceren, en houdt over wat echt over de eilanden gaat.
-3. Claude leest de oogst en schrijft er een editie van: `edities/JJJJ-MM-DD.json`.
+2. `scripts/overzicht.mjs` filtert (met `scripts/relevantie.mjs`) het landelijke
+   en internationale nieuws eruit, laat wat alleen over Ithaka gaat vallen, en
+   zet berichten over hetzelfde onderwerp bij elkaar.
+3. Claude leest het overzicht, haalt met `scripts/haal-artikel.mjs` de volledige
+   tekst op van elk artikel dat hij wil gebruiken, en schrijft er een editie van:
+   `edities/JJJJ-MM-DD.json`. Een tweede agent legt die editie naast de
+   bronteksten (`CONTROLE.md`), en `scripts/keur-editie.mjs` keurt haar.
 4. `scripts/bouw-site.mjs` maakt daar `index.html` en het archief van.
 5. De push van de editie start de workflow `.github/workflows/stuur-nieuwsbrief.yml`.
    Die verstuurt de mail met `scripts/stuur-mail.mjs` via Gmail (smtp.gmail.com),
    vanaf het adres in secret `GMAIL_GEBRUIKER`, met een app-wachtwoord in secret
    `GMAIL_APP_WACHTWOORD`. De Mac hoeft er niet voor aan te staan. Er gaat pas
    echt mail uit als repo-variabele `MAIL_ACTIEF` op `ja` staat.
+   De mail gaat alleen uit bij een **nieuw** editiebestand; een verbetering in
+   een bestaande editie werkt de pagina bij zonder te mailen. Opnieuw versturen
+   kan met de hand: Actions > Nieuwsbrief versturen > Run workflow, met
+   `alleen_proef` uit.
 
 Zonder Gmail-secrets valt `stuur-mail.mjs` terug op Resend (dat nooit werkend
 geverifieerd is geraakt). Er is ook nog `scripts/spark-concept.mjs`, dat de mail

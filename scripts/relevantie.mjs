@@ -1,51 +1,64 @@
-// Bepaalt of een bericht echt over Kefalonia of Ithaka gaat.
+// Bepaalt of een bericht echt over Kefalonia gaat.
 // De lokale sites publiceren namelijk ook landelijk en internationaal nieuws.
 
+// Grieks zonder accenten en in kleine letters, zodat "ΣΑΜΗ", "Σάμη" en "σάμης"
+// hetzelfde woord zijn. Koppen staan vaak in hoofdletters, en die hebben geen accenten.
+export const plat = s => String(s ?? '').normalize('NFD').replace(/\p{M}/gu, '')
+  .toLowerCase().replace(/ς/g, 'σ');
+
+// Alle termen staan hier al zonder accenten. Ze passen aan het begin van een
+// woord, zodat verbuigingen meetellen ("ληξουρ" vangt Ληξούρι en Ληξουρίου) maar
+// een term niet midden in een ander woord raak is.
 const PLAATSEN = [
-  // eiland en gemeenten
-  'κεφαλονι', 'κεφαλλην', 'κεφαλονί', 'ιθάκη', 'ιθάκης', 'ιθακ',
-  'αργοστόλι', 'αργοστολ', 'ληξούρι', 'ληξουρ', 'σάμη', 'σάμης',
-  'παλική', 'παλικ', 'ερίσσου', 'έρισσος', 'πύλαρο', 'λειβαθ',
-  'ελειό', 'πρόννο', 'φισκάρδο', 'βαθύ', 'βαθέως',
+  // eiland en gemeenten — Ithaka staat er bewust niet bij: de nieuwsbrief gaat
+  // over Kefalonia, en wat beide eilanden raakt noemt Kefalonia vanzelf.
+  'κεφαλονι', 'κεφαλλην', 'κεφαλλον', 'αργοστολ', 'ληξουρ', 'σαμη', 'σαμησ',
+  'παλικ', 'ερισ', 'πυλαρ', 'λειβαθ', 'λιβαθ', 'ελειο', 'προνν', 'ομαλων', 'θηναι',
   // dorpen, stranden, natuur
-  'σκάλα κεφ', 'άσσος', 'μύρτος', 'μυρτιώτ', 'αίνος', 'αίνου',
-  'δρογκαράτη', 'μελισσάνη', 'κουρκουμελάτα', 'λούρδα', 'κατελειό',
-  'πόρος κεφ', 'αγία ευφημία', 'πεσσάδα', 'σβορωνάτα', 'μηνιές',
-  'τζαννάτα', 'μαρκόπουλο', 'διβαράτα', 'καραβόμυλος', 'αντίσαμος',
-  // instellingen
-  'μαντζαβινάτειο', 'δευακ', 'δ.ε.υ.α.κ', 'ιόνιο πανεπιστήμιο',
-  'ιονίων νήσων', 'ιόνια νησιά', 'νοσοκομείο αργοστολίου',
-  'παναγία δραπανιώτισσα', 'δραπανιώτισσα', 'μεραρχία άκουι', 'μεραρχίας άκουι',
+  'φισκαρδ', 'σκαλα κεφ', 'σκαλασ κεφ', 'ασσο ', 'ασσοσ', 'ασσου', 'μυρτο ', 'μυρτοσ', 'μυρτου', 'μυρτιωτ',
+  'αινο ', 'αινου', 'αινοσ', 'δρογκαρατ', 'μελισσαν', 'κουρκουμελατ', 'λουρδα',
+  'κατελει', 'ποροσ κεφ', 'πορου κεφ', 'πορο κεφ', 'αγια ευφημια', 'αγιασ ευφημιασ',
+  'πεσσαδ', 'σβορωνατ', 'μηνιεσ', 'μηνιων', 'τζαννατ', 'διβαρατ', 'καραβομυλ', 'αντισαμ',
+  'φαρακλατ', 'λακηθρ', 'μεταξατ', 'ραζατ', 'βαλσαματ', 'φραγκατ', 'λασση',
+  'ξι κεφ', 'πετανο', 'κουταβ', 'λιθοστρωτ',
+  // instellingen en vaste namen
+  'μαντζαβινατ', 'δευακ', 'δ.ε.υ.α.κ', 'νοσοκομειο αργοστολ', 'νοσοκομειο κεφαλ',
+  'δραπανιωτισσ', 'μεραρχια ακουι', 'μεραρχιασ ακουι', 'αγιου γερασιμου', 'αγιοσ γερασιμοσ',
+  'κεφαλοσ', 'βεργωτ', 'ε.π.σ.κ.ι', 'επσκι', 'κεφιαπ',
+  // de regio: bestuur, Europees geld en vervoer raken het eiland ook
+  'ιονιων νησων', 'ιονια νησια', 'ιονιο πανεπιστημιο',
   // latijns
-  'kefaloni', 'cephaloni', 'ithaca', 'ithaki', 'argostoli', 'lixouri',
-  'fiskardo', 'sami', 'poros', 'assos', 'myrtos',
+  'kefaloni', 'kefalloni', 'cephaloni', 'argostoli', 'lixouri', 'fiskardo',
 ];
 
 // Onderwerpen die er voor een eilandbewoner toe doen, ook zonder plaatsnaam in de kop
 const ONDERWERPEN = [
-  'ακτοπλο', 'δρομολόγι', 'πλοίο', 'φέρι', 'ferry', 'αεροδρόμιο', 'πτήσ',
-  'σεισμ', 'πυρκαγι', 'καιρό', 'δήμαρχο', 'δημοτικό συμβούλιο',
-  'περιφέρεια', 'τουρισμ', 'ξενοδοχ', 'ελαιόλαδ', 'ρομπόλα', 'κρασ',
+  'ακτοπλο', 'δρομολογι', 'πλοιο', 'φερι', 'ferry', 'αεροδρομι', 'πτησ',
+  'σεισμ', 'πυρκαγι', 'καιρο', 'δημαρχ', 'δημοτικο συμβουλιο',
+  'περιφερει', 'τουρισμ', 'ξενοδοχ', 'ελαιολαδ', 'ρομπολα', 'κρασ',
 ];
 
+const ontsnap = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const alsPatroon = termen => termen.map(t => [t.trim(), new RegExp(`(?<![\\p{L}\\p{N}])${ontsnap(t.trimEnd())}${t.endsWith(' ') ? '(?![\\p{L}\\p{N}])' : ''}`, 'u')]);
+const PLAATS_RE = alsPatroon(PLAATSEN);
+const ONDERWERP_RE = alsPatroon(ONDERWERPEN);
+
 export function scoor(bericht) {
-  const tekst = `${bericht.titel} ${bericht.samenvatting || ''}`.toLowerCase();
-  const titel = bericht.titel.toLowerCase();
+  const titel = plat(bericht.titel);
+  const tekst = `${titel} ${plat(bericht.samenvatting)}`;
 
   let score = 0;
   const raak = [];
 
-  for (const p of PLAATSEN) {
-    if (titel.includes(p)) { score += 3; raak.push(p); }
-    else if (tekst.includes(p)) { score += 2; raak.push(p); }
+  for (const [naam, re] of PLAATS_RE) {
+    if (re.test(titel)) { score += 3; raak.push(naam); }
+    else if (re.test(tekst)) { score += 2; raak.push(naam); }
   }
   // Gemeentelijke bekendmakingen zijn per definitie lokaal
   if (bericht.soort === 'gemeente') score += 4;
 
   // Eilandonderwerpen tellen mee, maar alleen als opstapje
-  if (score > 0) {
-    for (const o of ONDERWERPEN) if (tekst.includes(o)) { score += 1; break; }
-  }
+  if (score > 0 && ONDERWERP_RE.some(([, re]) => re.test(tekst))) score += 1;
 
   return { score, raak: [...new Set(raak)].slice(0, 4) };
 }
