@@ -269,6 +269,12 @@ geveild werden; "18 procent besteed" hoort "volgens cijfers van mei 2026" te
 krijgen als dat erbij staat. Reken zelf niets door of bij elkaar op, behalve wat
 het artikel al optelt.
 
+**Zeg erbij als de bron een grapje maakt.** Ironie overleeft een vertaling
+niet vanzelf. Schrijft iemand na een stortbui dat het café "gelukkig
+reddingsvesten had", dan leest dat in het Nederlands als een mededeling, tenzij
+je erbij zet dat het een grapje is. Kun je niet uitmaken of iets ernstig bedoeld
+is, laat het dan weg.
+
 **Vertaal wat er staat.** Bij twijfel over een woord: kies de letterlijke
 betekenis boven de mooiere. Χαλίκια is grind, geen "stenen". Citaten vertaal je
 volledig en zonder ze aan te scherpen; vat je een uitspraak samen, dan zonder
