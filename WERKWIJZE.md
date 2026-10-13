@@ -42,7 +42,28 @@ node -e 'import("./scripts/relevantie.mjs").then(async ({filter})=>{
 ```
 
 Lees die lijst helemaal door. Verhalen komen vaak bij vier of vijf bronnen terug —
-dat is juist het signaal dat ze belangrijk zijn. Voeg ze samen tot één bericht.
+dat is juist het signaal dat ze belangrijk zijn. Staat **hetzelfde voorval** bij
+meerdere bronnen, dan wordt dat één bericht. Verschillende voorvallen blijven
+verschillende berichten, ook als ze op elkaar lijken of in dezelfde week vielen;
+zie "Eén bericht, één gebeurtenis" hieronder.
+
+## 2b. De artikelen zelf lezen
+
+De oogst geeft per bericht alleen de titel en de eerste vier-, vijfhonderd tekens.
+Dat is genoeg om te kiezen, niet om te schrijven. **Schrijf geen bericht, feitje
+of agendapunt waarvan je het artikel niet helemaal gelezen hebt.** Haal de tekst
+van alles wat je wilt opnemen op:
+
+```sh
+node scripts/haal-artikel.mjs <link> <link> ... > artikelen.txt
+```
+
+Dat geeft de volledige Griekse tekst, alinea voor alinea. Gebruik dit script en
+niet WebFetch: WebFetch geeft een samenvatting terug, en dan vertaal je een
+samenvatting in plaats van het artikel. Meldt het script `MISLUKT`, dan komt dat
+bericht niet in de editie, tenzij hetzelfde verhaal bij een andere bron wel
+binnenkomt. Liever vijftien berichten die kloppen dan dertig waarvan de helft
+uit een kopregel is afgeleid.
 
 ## 3. De editie schrijven
 
@@ -50,7 +71,8 @@ Schrijf `edities/JJJJ-MM-DD.json` (de datum van die maandag). Zie een bestaande
 editie voor de precieze vorm. Wat er in moet:
 
 - **titel** — geen "Nieuws week 38", maar de week in één zin gevat. Noem twee of
-  drie concrete dingen. **Begin met iets positiefs of opmerkelijks als dat er is.**
+  drie concrete dingen, in gewone woorden: wat er gebeurde, niet een beeld ervan.
+  "Lekkage in de sporthal van Argostoli", niet "de eerste regen vond elk lek terug". **Begin met iets positiefs of opmerkelijks als dat er is.**
   Een titel die opent met een sterfgeval of een ramp zet de hele editie in een
   toon die zelden klopt met wat er die week werkelijk speelde.
 - **intro** — twee tot drie zinnen die de week samenvatten. Informatief, niet
@@ -63,8 +85,9 @@ editie voor de precieze vorm. Wat er in moet:
 - **categorieen** — alleen de categorieën die deze week echt iets te melden hebben.
   Verzin er geen om een lijstje vol te maken; een week met weinig nieuws mag kort.
   Gebruikelijke rubrieken: Onderwijs, Zorg en veiligheid, Infrastructuur en verkeer,
-  Veerboten, Cultuur en agenda, Aarde en natuur, Bestuur en politiek, Ithaka, Sport.
-- **feitjes** — vijf tot acht opmerkelijke lokale weetjes. Dit is het lievelingsstuk
+  Veerboten, Cultuur en agenda, Aarde en natuur, Bestuur en politiek, Sport.
+- **feitjes** — vijf tot acht opmerkelijke lokale weetjes. Ook hiervoor geldt
+  alles onder "Nauwkeurigheid": één artikel per feitje, en niets erbij bedacht. Dit is het lievelingsstuk
   van de lezer, dus besteed er de meeste zorg aan. Goede feitjes zijn concreet,
   verrassend en klein: een raadselachtig krantenbericht uit 1937, het aantal agenten
   op Ithaka, een reddingsteam dat 's nachts uit Athene komt voor één veulen. Geen
@@ -103,9 +126,48 @@ editie voor de precieze vorm. Wat er in moet:
 ### Toon
 
 Nederlands, voor iemand die het eiland goed kent en er niet woont. Nuchter en
-concreet, met ruimte voor droge humor waar het nieuws daarom vraagt. Geen
-persbureau-Nederlands, geen uitroeptekens, geen "het belooft een prachtig
-evenement te worden".
+concreet. Geen persbureau-Nederlands, geen uitroeptekens, geen "het belooft een
+prachtig evenement te worden". En geen eigen grapjes of slotzinnen: staat de
+humor in het artikel, dan mag je hem overbrengen; staat hij er niet, dan voeg je
+hem niet toe. "De club riep op samen vanaf nul te beginnen; dat is letterlijk
+gelukt" is een grap van de schrijver over een ploeg die met 0-7 verloor, en
+hoort er dus niet in.
+
+### De kop zegt wat er gebeurd is
+
+Een kop is een gewone mededeling: wie of wat, en wat ermee is. De lezer moet aan
+de kop alleen kunnen zien waar het bericht over gaat.
+
+- Niet "De eerste regen vond alles terug", wel "Sporthal van Argostoli lekt
+  opnieuw bij regen".
+- Niet "Het rooster van Patras–Sami–Ithaka houdt op 18 oktober op", wel
+  "Vaarschema Patras–Sami loopt tot 18 oktober, nog geen vervolg bekend".
+- Niet "1.667 panden in de veiling, en twee streken die niets met elkaar te
+  maken hebben", wel "Sinds 2018 kwamen 1.667 panden in een veiling".
+
+Geen beeldspraak, geen woordspel, geen kop die pas na het lezen te begrijpen is.
+
+### Eén bericht, één gebeurtenis
+
+Hier ging het mis, en het is de reden dat teksten onsamenhangend werden. Een
+bericht gaat over **één voorval uit één artikel** (of uit meerdere artikelen over
+datzelfde voorval). Plak geen losse berichten aan elkaar omdat ze een thema
+delen. Lekkage in de sporthal, een ondergelopen boulevard, een natte schoolingang
+en uitgevallen verkeerslichten zijn vier berichten, of één bericht plus drie die
+je weglaat — nooit één alinea onder één link, want dan klopt de bronvermelding
+voor driekwart van de tekst niet.
+
+Dat geldt ook voor het aanhaken van iets anders aan het eind: geen "los daarvan
+publiceerde ...", geen "dezelfde week stond er ook ...", geen "vorige week was
+het nog ...". Is het tweede onderwerp de moeite waard, dan krijgt het een eigen
+bericht met een eigen link. Zo niet, dan vervalt het.
+
+**Opbouw van een bericht:** eerst wat er gebeurd is, waar en wanneer. Dan de
+bijzonderheden in de volgorde waarin ze elkaar verklaren. Dan wie er wat over
+zegt, en als laatste wat er nog komt. Drie tot vijf zinnen is meestal genoeg.
+Elke zin sluit aan op de vorige; een lezer die het artikel niet kent, moet het
+bericht in één keer kunnen volgen. Lange opsommingen van namen en functies
+horen er niet in: noem alleen wie nodig is om het bericht te begrijpen.
 
 ### Vloeiend Nederlands
 
@@ -151,10 +213,57 @@ bron met het uitgebreidste artikel en link daarheen.
 
 ### Nauwkeurigheid
 
-Schrijf alleen op wat in de bronnen staat. Twijfel je over een getal of een naam,
-haal het artikel er dan bij met WebFetch. Noem bij elk bericht de bron en een
-werkende link. Kun je een feit niet hard krijgen, laat het dan weg — er is elke
-week meer dan genoeg.
+Je taak is vertalen en samenvatten, niet duiden. **Elke bewering in een bericht
+moet aan te wijzen zijn in het artikel waar de link naartoe gaat.** Kun je de zin
+niet aanwijzen, dan gaat hij eruit. Kun je een feit niet hard krijgen, laat het
+dan weg — er is elke week meer dan genoeg.
+
+**Leg zelf geen verbanden.** Niet tussen twee berichten uit dezelfde week, niet
+met een bericht uit een eerdere editie, en niet met wat je over het eiland weet.
+Het voorbeeld waar dit op terugvoert: in september botste een jongen op een step
+op een paard dat door zijn eigenaar aan een touw werd meegevoerd. Een week later
+stond er een bericht dat de halfwilde paarden van de Ainos in Platies liepen. De
+editie zette daar "precies bij die weg botste vorige week een zeventienjarige op
+een paard" achter. Dat stond in geen van beide artikelen (het artikel over Platies
+noemt niet eens een weg), en het maakte van een paard met een eigenaar een paard van de Ainos. Een verband
+mag er alleen in als de bron het zelf legt, en dan met de bron erbij.
+
+**Verzin geen bijzonderheden.** Geen wegnummer, plaats, dag, leeftijd, functie of
+oorzaak die niet in het artikel staat. Schrijft de bron "vandaag", reken dan de
+dag uit met de publicatiedatum; kun je dat niet, schrijf dan "deze week".
+
+**Houd de slag om de arm van de bron vast.** Een voorstel is geen besluit, een
+vraag is geen feit, een beschuldiging is geen vaststelling. Schrijft iemand dat
+er "een bord zou moeten komen", dan is er niemand iets gevraagd. Schrijft de bron
+dat het aflopen van een vaarschema "op zich niet bewijst dat de lijn stopt", dan
+staat dat voorbehoud ook in het bericht, en zeker in de kop en de agenda.
+Meningen en beschuldigingen krijgen altijd een afzender: "volgens de
+oppositielijst ANASA", "de bouwvakkersvereniging spreekt van".
+
+**Trek geen eigen conclusie.** Niet "de conclusie is duurdere kaartjes", niet
+"de vraag is wie het pand mag gebruiken", niet "en met de winter op komst
+waarschijnlijk niet de laatste" — tenzij het artikel het zo zegt, en dan zeg je
+erbij wie.
+
+**Getallen met hun grondslag.** Neem bij een percentage over waarvan het een
+percentage is, en bij een cijfer van wanneer het is. "In Erisos vond 48 procent
+een koper" is fout als het gaat om 48 procent van de panden die daadwerkelijk
+geveild werden; "18 procent besteed" hoort "volgens cijfers van mei 2026" te
+krijgen als dat erbij staat. Reken zelf niets door of bij elkaar op, behalve wat
+het artikel al optelt.
+
+**Vertaal wat er staat.** Bij twijfel over een woord: kies de letterlijke
+betekenis boven de mooiere. Χαλίκια is grind, geen "stenen". Citaten vertaal je
+volledig en zonder ze aan te scherpen; vat je een uitspraak samen, dan zonder
+aanhalingstekens.
+
+**Controle voor je publiceert.** Loop de editie na het schrijven één keer langs
+met `artikelen.txt` ernaast, bericht voor bericht, en ook de titel, de intro, de
+feitjes en de agenda. Streep per bericht weg: elke zin die je niet in het artikel
+terugvindt, elke zin die uit een ander artikel komt dan de link, en elke zin
+waarin jij iets vindt. Lees het daarna als Nederlands: struikel je over een zin
+of snap je niet hoe hij op de vorige volgt, schrijf hem dan korter en gewoner
+opnieuw. Noem bij elk bericht de bron en een werkende link.
 
 ## 4. Site bouwen en publiceren
 
